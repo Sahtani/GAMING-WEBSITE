@@ -13,6 +13,8 @@ module.exports = {
         'primary': '#2E4BFF',
         'dark': '#080E1B',
         'blueText2': '#0E41F3',
+        'customize': '#17284C',
+        'checkout': '#1E3B79',
       },
     },
   },
