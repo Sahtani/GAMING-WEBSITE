@@ -17,28 +17,30 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
+    <!-- js -->
     <script src="./js/menu.js" defer></script>
+    <script src="./js/carroussel.js" defer></script>
   </head>
 
-  <body class="font-Saira Condensed">
+  <body>
     <header>
-      <nav class="bg-background flex items-center justify-between fixed w-full">
+      <nav class="bg-background flex items-center justify-between w-full">
         <div class="flex items-center">
           <li>
             <a href="#" id="burgerMenu" class="text-white text-4xl md:hidden"
               ><i class="bi bi-list"></i
             ></a>
           </li>
-          <img src="./img/logo.png" alt="" class="w-8/12 p-2 md:w-6/12" />
+          <img src="./img/logo.png" alt="" class="w-8/12 p-2 md:w-2/3" />
         </div>
 
         <div>
-          <ul class="gap-5 md:flex" id="navbar">
-            <li><a href="#" class="text-white hidden md:block">Home</a></li>
-            <li><a href="#" class="text-white hidden md:block">Catalog</a></li>
-            <li><a href="#" class="text-white hidden md:block">About Us</a></li>
+          <ul class="gap-7 md:flex" id="navbar">
+            <li><a href="#" class="text-white md:text-xl hidden md:block">Home</a></li>
+            <li><a href="#" class="text-white md:text-xl hidden md:block">Catalog</a></li>
+            <li><a href="#" class="text-white md:text-xl hidden md:block">About Us</a></li>
             <li>
-              <a href="#" class="text-white hidden md:block">Contact Us</a>
+              <a href="#" class="text-white text-xl hidden md:block">Contact Us</a>
             </li>
             <li>
               <a href="#" class="text-white p-5 text-3xl"
@@ -61,12 +63,13 @@
       </ul>
     </header>
 
-    <section class="bg-gradient-to-r from-secondary to-background mt-60">
-      <div class="about-us">
-        <img class="md:w-2/6 p-5" src="/img/image 15.png" alt="" />
-        <div class="text-white">
-          <h1 class="text-center text-4xl">About Us</h1>
-          <p class="text-white text-xs text-center p-5">
+    <section class="bg-gradient-to-r from-secondary to-background">
+      <div class="about-us md:flex items-center justify-around gap-6">
+        <img class="p-5 md:w-1/2" src="/img/image 15.png" alt="" />
+        <div class="aboutus-1 text-white md:flex flex-col justify-start md:mt-1 md:h-full ">
+          
+          <h1 class="text-center text-4xl md:text-left">About Us</h1>
+          <p class="text-white text-xs text-center p-5 md:text-2xl md:text-left md:pr-5 ">
             GameBit, the ultimate destination for gaming enthusiasts, was
             founded with a passion for all things gaming. Our website offers a
             diverse range of gaming products, including high-performance
@@ -76,11 +79,11 @@
           </p>
         </div>
       </div>
-      <div class="Our-History">
-        <img class="md:w-2/12 p-5" src="./img/image 16.png" />
+      <div class="Our-History md:flex items-center justify-around gap-6 flex-row-reverse ">
+        <img class=" p-5 md:w-1/2" src="./img/image 16.png" />
         <div class="text-white">
-          <h1 class="text-center text-4xl">Our History</h1>
-          <p class="text-white text-xs text-center p-5">
+          <h1 class="text-center text-4xl md:text-justify md:px-8">Our History</h1>
+          <p class="text-white text-xs text-center p-5 md:text-2xl md:px-8 md:p-1 md:text-left">
             GameBit was established in 2022 by a group of avid gamers who shared
             a common vision: to provide the gaming community with top-tier
             equipment and accessories. Over the years, we've evolved into a hub
@@ -90,22 +93,74 @@
           </p>
         </div>
       </div>
-      <div>
-        <div >
-            <h1 class="text-white text-4xl text-center">Our partners</h1>
-            <div class="imgs">
-                <div class="flex items-center justify-between gap-3 ">
-                    <img class="md:w-10 h-32" src="./img/Group 128.png">
-                <img class="md:w-1/3" src="./img/Rectangle 148.png">
-                <img  class="md:w-10 h-32" src="./img/Group 129.png">
+      <div class="our-partners md:flex flex-col items-center">
+        <h1 class="text-white text-4xl text-center">Our partners</h1>
+        <div class="imgs flex flex-row items-center">
+          <button class="p-2" id="left">
+            <i class="text-white text-3xl md:text-6xl bi bi-arrow-left-circle-fill"></i>
+          </button>
+          <div class="slide">
+            <div>
+              <img
+                class="p-2 md:p-8 md:w-full" src="./img/Rectangle 148.png"
+              />
             </div>
-                <img class="p-5" src="./img/Rectangle 149.png">
+          </div>
+          <div class="slide">
+            <img
+              class="p-2 md:w-full md:p-8"  src="./img/Rectangle 149.png"
+            />
+          </div>
+          <div class="slide">
+            <img class="p-2  md:p-8 md:w-full"  src="./img/play.png" />
+          </div>
+          <button class="p-2" id="right">
+            <i class="text-white text-3xl md:text-6xl bi bi-arrow-right-circle-fill"></i>
+          </button>
+        </div>
+      </div>
+      <div class="our-events">
+        <div>
+          <h1 class="text-white text-center text-4xl">Our events</h1>
+          <h2 class="text-white text-center text-3xl">E-Sports Competition</h2>
+          <div class="md:flex flex-col items-center justify-center">
+          <img src="./img/Rectangle 162.png" class="p-5"/>
 
-
-
-            </div>
+          <p class="text-white text-center p-2 md:text-2xl md:pt-3 md:mb-7 md:px-5">
+            An E-Sports competition that will be held during November, with
+            plenty of your favorite games.
+          </p>
         </div>
       </div>
     </section>
+    <footer class = "bg-background">
+      <div>
+          <div class = "grid grid-rows-2 grid-cols-1 md:grid md:grid-rows-1 md:grid-cols-3 pt-5">
+              <div>
+                  <img src="./img/logo.png" alt="" class = "m-auto">
+                  <p class = "text-white text-center text-xl">Terms and conditions</p>
+              </div>
+
+              <div class = "pt-3">
+                  <p class = "text-white text-center text-3xl font-bold">Menu</p>
+                  <p class = "text-white text-center text-xl">Home</p>
+                  <p class = "text-white text-center text-xl">Catalog</p>
+                  <p class = "text-white text-center text-xl">Contact</p>
+                  <p class = "text-white text-center text-xl">About Us</p>
+              </div>
+
+              <div class = "pt-3">
+                  <p class = "text-white text-center text-3xl font-bold">Social Media</p>
+                  <p class = "text-white text-center text-xl">Facebook</p>
+                  <p class = "text-white text-center text-xl">Twitter</p>
+                  <p class = "text-white text-center text-xl">Instagram</p>
+              </div>
+          </div>
+      </div>
+
+      <div class = "pt-10 md:pt-3">
+          <p class = "text-slate-400 text-center">© 2023 NightCrawlers</p>
+      </div>
+  </footer>
   </body>
 </html>
