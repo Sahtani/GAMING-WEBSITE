@@ -279,7 +279,7 @@ function displayProducts() {
 
     filteredProducts.slice(startIdx, endIdx).forEach((product) => {
         const productDiv = document.createElement('div');
-        productDiv.classList = 'backgroundtest bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
+        productDiv.className = 'backgroundtest bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
 
         const productCategory = document.createElement('p');
         productCategory.className = 'text-white bg-blueText w-min pr-14 pl-2 clipped';
