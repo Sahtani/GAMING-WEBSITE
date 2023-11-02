@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./dist/output.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./dist/output.css">
+    
     <script src="./js/script.js" defer></script>
 </head>
 
@@ -33,7 +35,7 @@
             </div>
         </nav>
 
-        <ul id = "navbarMobile" class = "absolute bg-gradient-to-r from-secondary to-background text-center w-2/6 h-screen hidden">
+        <ul id = "navbarMobile" class = "fixed bg-gradient-to-r from-secondary to-background text-center w-2/6 h-screen hidden z-50">
             <li><img src="./img/logo.png" alt=""></li>
             <li><a href = "#" class = "text-white">Home</a></li>
             <li><a href = "#" class = "text-white">Catalog</a></li>
@@ -43,515 +45,35 @@
     </header>
 
     <main class = "flex justify-around flex-col pt-32 md:flex-row">
-        <div class = "flex md:flex-col pr-5 pl-5">
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">Moniteurs</a>
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">Casques</a>
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">Souris</a>
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">Claviers</a>
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">PC</a>
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">Consoles</a>
-            <a href="#" class = "bg-dark text-white text-xl text-center pr-12 pl-12 pt-5 pb-5 mb-3 hidden md:block">Jeux Vidéos</a>
-            <a href="#" class = "bg-dark text-white text-center pr-8 pl-8 pt-2 pb-2 mb-3 m-auto block md:hidden">Please select an option...</a>
+        <div class = "flex md:flex-col mx-auto filter-buttons">
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "AllBtn">All</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "MoniteursBtn">Moniteurs</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "CasquesBtn">Casques</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "SourisBtn">Souris</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "ClaviersBtn">Claviers</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "PCBtn">PC</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "ConsolesBtn">Consoles</a>
+            <a href="#" class = "bg-dark text-white text-xl text-center px-16 pt-5 pb-5 mx-5 mb-3 hidden md:block hover:bg-blue-600 transition-all hover:animate-scaleup" id = "JeuxBtn">Jeux Vidéos</a>
+
+            </div>
         </div>
 
-        <div class = "flex m-auto">
-            <div class = "grid grid-cols-1 grid-rows-6 gap-10 md:pl-4 md:grid md:grid-rows-2 md:grid-cols-3 md:gap-8 md:items-center text-2xl">
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Moniteurs</p>
-                        <img src="./img/optix.png" alt="">
-                        <p class = "text-center text-white font-semibold">MSI Optix G24C4 24" 144Hz</p>
-                        <p class = "text-center text-primary font-semibold">1,699.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
+        <div class = "flex m-auto products">
+            <div class = "grid grid-cols-1 grid-rows-6 gap-10 md:grid md:grid-rows-2 md:grid-cols-3 md:gap-8 md:items-center text-lg" id = "product-grid">
 
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Moniteurs</p>
-                        <img src="./img/msi.png" alt="">
-                        <p class = "text-center text-white font-semibold">MSI Optix G214VC</p>
-                        <p class = "text-center text-primary font-semibold">1,999.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Moniteurs</p>
-                        <img src="./img/asus.png" alt="">
-                        <p class = "text-center text-white font-semibold">ASUS VP249QGR</p>
-                        <p class = "text-center text-primary font-semibold">2,399.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Moniteurs</p>
-                        <img src="./img/asusgaming.png" alt="">
-                        <p class = "text-center text-white font-semibold">ASUS VG278Q</p>
-                        <p class = "text-center text-primary font-semibold">2,399.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Moniteurs</p>
-                        <img src="./img/acer.png" alt="">
-                        <p class = "text-center text-white font-semibold">Acer 27" 170Hz WQHD</p>
-                        <p class = "text-center text-primary font-semibold">2,399.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Moniteurs</p>
-                        <img src="./img/huawei.png" alt="">
-                        <p class = "text-center text-white font-semibold">Huawei Display 23.8"</p>
-                        <p class = "text-center text-primary font-semibold">2,099.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/greenHeadphones.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer Kraken</p>
-                        <p class = "text-center text-primary font-semibold">499.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/pinkHeadphones.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer Kraken Quartz</p>
-                        <p class = "text-center text-primary font-semibold">499.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/whiteHeadphones.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer Kraken X Wired</p>
-                        <p class = "text-center text-primary font-semibold">449.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/pro.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer Kraken V3 X Wired</p>
-                        <p class = "text-center text-primary font-semibold">699.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/logitech.png" alt="">
-                        <p class = "text-center text-white font-semibold">Logitech PRO X Gaming</p>
-                        <p class = "text-center text-primary font-semibold">1,299.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/logitechRed.png" alt="">
-                        <p class = "text-center text-white font-semibold">Logitech G332 Wi</p>
-                        <p class = "text-center text-primary font-semibold">599.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/hyperx.png" alt="">
-                        <p class = "text-center text-white font-semibold">HyperX Cloud II</p>
-                        <p class = "text-center text-primary font-semibold">749.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/blueHyper.png" alt="">
-                        <p class = "text-center text-white font-semibold">HyperX Cloud II</p>
-                        <p class = "text-center text-primary font-semibold">569.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Casques</p>
-                        <img src="./img/hyperx3.png" alt="">
-                        <p class = "text-center text-white font-semibold">HyperX Cloud Stinger 2</p>
-                        <p class = "text-center text-primary font-semibold">319.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>  
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Souris</p>
-                        <img src="./img/razerMouse.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer Basilisk V3 X Hyperspeed</p>
-                        <p class = "text-center text-primary font-semibold">699.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>  
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Souris</p>
-                        <img src="./img/mouseGaming.png" alt="">
-                        <p class = "text-center text-white font-semibold">Logitech G502</p>
-                        <p class = "text-center text-primary font-semibold">499.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Souris</p>
-                        <img src="./img/rgbmouse.png" alt="">
-                        <p class = "text-center text-white font-semibold">Croma Pro Wired Optical</p>
-                        <p class = "text-center text-primary font-semibold">699.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Souris</p>
-                        <img src="./img/redragon.png" alt="">
-                        <p class = "text-center text-white font-semibold">REDRAGON Wired Mouse</p>
-                        <p class = "text-center text-primary font-semibold">129.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Souris</p>
-                        <img src="./img/marvotech.png" alt="">
-                        <p class = "text-center text-white font-semibold">MarvoTech G945</p>
-                        <p class = "text-center text-primary font-semibold">349.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Souris</p>
-                        <img src="./img/nyc.png" alt="">
-                        <p class = "text-center text-white font-semibold">New York Gaming Mouse</p>
-                        <p class = "text-center text-primary font-semibold">399.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Claviers</p>
-                        <img src="./img/razerKeyboard.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer BlackWidow V4 X</p>
-                        <p class = "text-center text-primary font-semibold">1,799.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Claviers</p>
-                        <img src="./img/razerKeyboard2.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer BlackWidow V3</p>
-                        <p class = "text-center text-primary font-semibold">1,499.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Claviers</p>
-                        <img src="./img/razerKeyboard3.png" alt="">
-                        <p class = "text-center text-white font-semibold">Razer BlackWidow V2</p>
-                        <p class = "text-center text-primary font-semibold">1,199.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">PC</p>
-                        <img src="./img/originGamingPC.png" alt="">
-                        <p class = "text-center text-white font-semibold">Origin Gaming PC</p>
-                        <p class = "text-center text-primary font-semibold">5,799.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">PC</p>
-                        <img src="./img/hermesGamingPC.png" alt="">
-                        <p class = "text-center text-white font-semibold">Hermes Gaming PC</p>
-                        <p class = "text-center text-primary font-semibold">6,499.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">PC</p>
-                        <img src="./img/refractGamingPC.png" alt="">
-                        <p class = "text-center text-white font-semibold">Refract Gaming PC</p>
-                        <p class = "text-center text-primary font-semibold">12,299.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/ps4.png" alt="">
-                        <p class = "text-center text-white font-semibold">PlayStation 4</p>
-                        <p class = "text-center text-primary font-semibold">2,999.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/ps4pro.png" alt="">
-                        <p class = "text-center text-white font-semibold">PlayStation 4 Pro</p>
-                        <p class = "text-center text-primary font-semibold">3,799.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/ps5.png" alt="">
-                        <p class = "text-center text-white font-semibold">PlayStation 5</p>
-                        <p class = "text-center text-primary font-semibold">6,999.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/ps5digital.png" alt="">
-                        <p class = "text-center text-white font-semibold">PlayStation 5 Digital</p>
-                        <p class = "text-center text-primary font-semibold">5,999.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/xbox.png" alt="">
-                        <p class = "text-center text-white font-semibold">Xbox Series X</p>
-                        <p class = "text-center text-primary font-semibold">7,699.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/switch.png" alt="">
-                        <p class = "text-center text-white font-semibold">Nintendo Switch</p>
-                        <p class = "text-center text-primary font-semibold">3,999.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-min pr-14 pl-2 clipped">Consoles</p>
-                        <img src="./img/oled.png" alt="">
-                        <p class = "text-center text-white font-semibold">Nintendo Switch OLED</p>
-                        <p class = "text-center text-primary font-semibold">5,999.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-full pr-14 pl-2 clipped">Jeux Vidéo</p>
-                        <img src="./img/botw.png" alt="" class = "m-auto">
-                        <p class = "text-center text-white font-semibold">The Legend of Zelda: <br>Breath of the Wild</p>
-                        <p class = "text-center text-primary font-semibold">599.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-full pr-14 pl-2 clipped">Jeux Vidéo</p>
-                        <img src="./img/re4.png" alt="" class = "m-auto">
-                        <p class = "text-center text-white font-semibold">Resident Evil 4</p>
-                        <p class = "text-center text-primary font-semibold">599.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-full pr-14 pl-2 clipped">Jeux Vidéo</p>
-                        <img src="./img/ff7.png" alt="" class = "m-auto">
-                        <p class = "text-center text-white font-semibold">Final Fantasy 7</p>
-                        <p class = "text-center text-primary font-semibold">599.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class = "bg-blueText bg-opacity-10 border-dark border-2 pb-3">
-                        <p class = "text-white bg-blueText w-full pr-14 pl-2 clipped">Jeux Vidéo</p>
-                        <img src="./img/gta5.png" alt="" class = "m-auto">
-                        <p class = "text-center text-white font-semibold">Grand Theft Auto 5</p>
-                        <p class = "text-center text-primary font-semibold">599.99 DH</p>
-                        <div class = "text-center">
-                            <a href="#" class = "bg-customize text-white text-lg pl-2 pr-2">Customize</a>
-                            <a href="#" class = "bg-checkout text-white text-lg pl-3 pr-3">Checkout</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </main>
+
+    <nav>
+        <div class = "flex flex-row justify-center mt-5">
+            <button id = "prevPage" class = "p-4 bg-primary text-white"><</button>
+            <div id = "pageNumbers" class = "flex items-center space-x-2">
+
+            </div>
+            <button id = "nextPage" class = "p-4 bg-primary text-white">></button>
+        </div>
+    </nav>
 
     <footer class = "bg-background mt-10">
         <div>

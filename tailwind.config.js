@@ -16,6 +16,31 @@ module.exports = {
         'customize': '#17284C',
         'checkout': '#1E3B79',
       },
+
+      animation: {
+        "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+        "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
+      },
+
+      keyframes: {
+        "scaleup": {
+          from: {
+            transform: "scale(1)"
+          },
+          to: {
+            transform: "scale(1.1)"
+          }
+        },
+
+        "scaleup-mini": {
+          from: {
+            transform: "scale(1)"
+          },
+          to: {
+            transform: "scale(1.03)"
+          }
+        }
+      }
     },
   },
   plugins: [],
