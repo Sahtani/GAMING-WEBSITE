@@ -18,6 +18,53 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <!-- js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                'Saira': ['Saira Condensed', 'sans-serif']
+                },
+                extend: {
+                colors: {
+                    'background': '#000614',
+                    'secondary': '#030029',
+                    'blueText': '#0036AC',
+                    'primary': '#2E4BFF',
+                    'dark': '#080E1B',
+                    'blueText2': '#0E41F3',
+                    'customize': '#17284C',
+                    'checkout': '#1E3B79',
+                },
+
+                animation: {
+                    "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+                    "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
+                },
+
+                keyframes: {
+                    "scaleup": {
+                    from: {
+                        transform: "scale(1)"
+                    },
+                    to: {
+                        transform: "scale(1.1)"
+                    }
+                    },
+
+                    "scaleup-mini": {
+                    from: {
+                        transform: "scale(1)"
+                    },
+                    to: {
+                        transform: "scale(1.03)"
+                    }
+                    }
+                }
+                },
+            },
+        }
+    </script>
     <script src="./js/menu.js" defer></script>
     <script src="./js/carroussel.js" defer></script>
   </head>
@@ -69,7 +116,7 @@
         <div class="aboutus-1 text-white md:flex flex-col justify-start md:mt-1 md:h-full ">
           
           <h1 class="text-center text-4xl md:text-left">About Us</h1>
-          <p class="text-white text-xs text-center p-5 md:text-2xl md:text-left md:pr-5 ">
+          <p class="text-white text-xl text-center p-5 md:text-2xl md:text-left md:pr-5 ">
             GameBit, the ultimate destination for gaming enthusiasts, was
             founded with a passion for all things gaming. Our website offers a
             diverse range of gaming products, including high-performance
@@ -83,7 +130,7 @@
         <img class=" p-5 md:w-1/2" src="./img/image 16.png" />
         <div class="text-white">
           <h1 class="text-center text-4xl md:text-justify md:px-8">Our History</h1>
-          <p class="text-white text-xs text-center p-5 md:text-2xl md:px-8 md:p-1 md:text-left">
+          <p class="text-white text-xl text-center p-5 md:text-2xl md:px-8 md:p-1 md:text-left">
             GameBit was established in 2022 by a group of avid gamers who shared
             a common vision: to provide the gaming community with top-tier
             equipment and accessories. Over the years, we've evolved into a hub
@@ -126,7 +173,7 @@
           <div class="md:flex flex-col items-center justify-center">
           <img src="./img/Rectangle 162.png" class="p-5"/>
 
-          <p class="text-white text-center p-2 md:text-2xl md:pt-3 md:mb-7 md:px-5">
+          <p class="text-white text-xl text-center p-2 md:text-2xl md:pt-3 md:mb-7 md:px-5">
             An E-Sports competition that will be held during November, with
             plenty of your favorite games.
           </p>
