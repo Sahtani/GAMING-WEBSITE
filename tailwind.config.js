@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html"],
+  content: ["./index.html", "./js/script.js"],
   theme: {
     fontFamily: {
       'Saira': ['Saira Condensed', 'sans-serif']
@@ -45,4 +45,3 @@ module.exports = {
   },
   plugins: [],
 }
-

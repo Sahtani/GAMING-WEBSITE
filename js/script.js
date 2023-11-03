@@ -39,6 +39,12 @@ const products = [
         category: "Moniteurs"
     },
     {
+        name: 'Razer Kraken V3 X Wired',
+        price: 699.99,
+        image: "./img/pro.png",
+        category: "Casques"
+    },
+    {
         name: 'ASUS VP249QGR',
         price: 2399.99,
         image: "./img/asus.png",
@@ -81,18 +87,6 @@ const products = [
         category: "Casques"
     },
     {
-        name: 'Razer Kraken V3 X Wired',
-        price: 699.99,
-        image: "./img/pro.png",
-        category: "Casques"
-    },
-    {
-        name: 'Logitech PRO X Gaming',
-        price: 1299.99,
-        image: "./img/logitech.png",
-        category: "Casques"
-    },
-    {
         name: 'Logitech G332 Wi',
         price: 599.99,
         image: "./img/logitechRed.png",
@@ -103,6 +97,18 @@ const products = [
         price: 749.99,
         image: "./img/hyperx.png",
         category: "Casques"
+    },
+    {
+        name: 'REDRAGON Wired Mouse',
+        price: 129.99,
+        image: "./img/redragon.png",
+        category: "Souris"
+    },
+    {
+        name: 'PlayStation 5',
+        price: 6999.99,
+        image: "./img/ps5.png",
+        category: "Consoles"
     },
     {
         name: 'HyperX Cloud',
@@ -123,6 +129,12 @@ const products = [
         category: "Souris"
     },
     {
+        name: 'Xbox Series X',
+        price: 7699.99,
+        image: "./img/xbox.png",
+        category: "Consoles"
+    },
+    {
         name: 'Logitech G502',
         price: 499.99,
         image: "./img/mouseGaming.png",
@@ -135,16 +147,22 @@ const products = [
         category: "Souris"
     },
     {
-        name: 'REDRAGON Wired Mouse',
-        price: 129.99,
-        image: "./img/redragon.png",
-        category: "Souris"
+        name: 'The Legend of Zelda: Breath of the Wild',
+        price: 599.99,
+        image: "./img/botw.png",
+        category: "Jeux"
     },
     {
         name: 'MarvoTech G945',
         price: 349.99,
         image: "./img/marvotech.png",
         category: "Souris"
+    },
+    {
+        name: 'Origin Gaming PC',
+        price: 5799.99,
+        image: "./img/originGamingPC.png",
+        category: "PC"
     },
     {
         name: 'New York Gaming Mouse',
@@ -165,16 +183,16 @@ const products = [
         category: "Claviers"
     },
     {
+        name: 'Logitech PRO X Gaming',
+        price: 1299.99,
+        image: "./img/logitech.png",
+        category: "Casques"
+    },
+    {
         name: 'Razer BlackWidow V2',
         price: 1199.99,
         image: "./img/razerKeyboard3.png",
         category: "Claviers"
-    },
-    {
-        name: 'Origin Gaming PC',
-        price: 5799.99,
-        image: "./img/originGamingPC.png",
-        category: "PC"
     },
     {
         name: 'Hermes Gaming PC',
@@ -201,21 +219,9 @@ const products = [
         category: "Consoles"
     },
     {
-        name: 'PlayStation 5',
-        price: 6999.99,
-        image: "./img/ps5.png",
-        category: "Consoles"
-    },
-    {
         name: 'PlayStation 5 Digital',
         price: 5999.99,
         image: "./img/ps5digital.png",
-        category: "Consoles"
-    },
-    {
-        name: 'Xbox Series X',
-        price: 7699.99,
-        image: "./img/xbox.png",
         category: "Consoles"
     },
     {
@@ -225,22 +231,16 @@ const products = [
         category: "Consoles"
     },
     {
-        name: 'Nintendo Switch OLED',
-        price: 5999.99,
-        image: "./img/oled.png",
-        category: "Consoles"
-    },
-    {
-        name: 'The Legend of Zelda: Breath of the Wild',
-        price: 599.99,
-        image: "./img/botw.png",
-        category: "Jeux"
-    },
-    {
         name: 'Resident Evil 4',
         price: 599.99,
         image: "./img/re4.png",
         category: "Jeux"
+    },
+    {
+        name: 'Nintendo Switch OLED',
+        price: 5999.99,
+        image: "./img/oled.png",
+        category: "Consoles"
     },
     {
         name: 'Final Fantasy 7',
@@ -258,6 +258,14 @@ const products = [
 
 const buttonIds = ["All", "Moniteurs", "Casques", "Souris", "Claviers", "PC", "Consoles", "Jeux"];
 const buttons = {};
+const personalizeDiv = document.getElementById("personalize");
+const containerElements = document.getElementById("containerElements");
+const cartContainer = document.getElementById("cartContainer");
+const totalPrice = document.createElement('p');
+let totalPriceValue = 0;
+
+const shoppingCart = [];
+const cartBtn = document.getElementById("cartBtn");
 
 const productsPerPage = 6;
 let currentPage = 1;
@@ -274,12 +282,14 @@ function displayProducts() {
     const productGrid = document.getElementById('product-grid');
     const startIdx = (currentPage - 1) * productsPerPage;
     const endIdx = startIdx + productsPerPage;
+    totalPrice.className = "text-white";
 
     productGrid.innerHTML = '';
 
     filteredProducts.slice(startIdx, endIdx).forEach((product) => {
+
         const productDiv = document.createElement('div');
-        productDiv.className = 'backgroundtest bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
+        productDiv.className = 'bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
 
         const productCategory = document.createElement('p');
         productCategory.className = 'text-white bg-blueText w-min pr-14 pl-2 clipped';
@@ -301,12 +311,82 @@ function displayProducts() {
         productButtons.className = 'text-center';
         const customizeButton = document.createElement('a');
         customizeButton.href = '#';
-        customizeButton.className = 'bg-customize text-white pl-2 pr-2 hover:bg-primary transition-all';
+        customizeButton.className = 'bg-customize text-white pl-2 pr-2 hover:bg-primary transition-all customize';
         customizeButton.textContent = 'Customize';
         const checkoutButton = document.createElement('a');
         checkoutButton.href = '#';
         checkoutButton.className = 'bg-checkout text-white pl-3 pr-3 hover:bg-primary transition-all';
         checkoutButton.textContent = 'Checkout';
+
+        checkoutButton.addEventListener("click", function() {
+
+            const controlsDiv = document.createElement('div');
+            const controlMinus = document.createElement('button');
+            const controlCounter = document.createElement('button');
+            const controlPlus = document.createElement('button');
+
+            controlsDiv.className = "flex flex-row";
+            controlMinus.classList = "text-white bg-background border border-white p-4";
+            controlPlus.classList = "text-white bg-background border border-white p-4";
+            controlCounter.classList = "text-white bg-background border border-white p-4";
+            controlMinus.innerHTML = '<'
+            controlPlus.innerHTML = '>'
+
+            const productNameCopy = productName.cloneNode();
+            productNameCopy.innerHTML = product.name;
+            let counter = 1;
+
+            controlCounter.innerHTML = counter;
+
+            controlMinus.addEventListener("click", function() {
+                if (counter != 1) {
+                    counter--;
+                    console.log(counter);
+                    controlCounter.innerHTML = counter;
+                    productPriceCopy.innerHTML = (product.price * counter).toFixed(2) + ' DH';
+                    totalPriceValue -= (product.price * counter).toFixed(2);
+                    console.log(totalPriceValue);
+                    totalPrice.innerHTML = `${totalPriceValue}`;
+                }
+            });
+
+            controlPlus.addEventListener("click", function() {
+                if (counter != 99) {
+                    counter++;
+                    console.log(counter);
+                    controlCounter.innerHTML = counter;
+                    productPriceCopy.innerHTML = (product.price * counter).toFixed(2) + ' DH';
+                    totalPriceValue += (product.price * counter).toFixed(2);
+                    console.log(totalPriceValue);
+                    totalPrice.innerHTML = `${totalPriceValue}`;
+                }
+            });
+
+            const productImageCopy = productImage.cloneNode();
+            const productPriceCopy = productPrice.cloneNode();
+            productPriceCopy.innerHTML = (product.price * counter).toFixed(2) + ' DH';
+
+            if (shoppingCart.includes(productNameCopy.innerHTML)) {
+                counter++;
+                controlCounter.innerHTML = counter;
+            } else {
+                shoppingCart.push(productNameCopy.innerHTML);
+                shoppingCart.push(productPriceCopy.innerHTML);
+                shoppingCart.push(productImageCopy);
+                shoppingCart.push(counter);
+                console.log(shoppingCart);
+    
+                cartContainer.appendChild(productImageCopy);
+                cartContainer.appendChild(productNameCopy);
+                cartContainer.appendChild(productPriceCopy);
+    
+                cartContainer.appendChild(controlsDiv);
+                controlsDiv.appendChild(controlMinus);
+                controlsDiv.appendChild(controlCounter);
+                controlsDiv.appendChild(controlPlus);
+            }
+        
+    });
 
         productDiv.appendChild(productCategory);
         productDiv.appendChild(productImage);
@@ -315,6 +395,7 @@ function displayProducts() {
         productButtons.appendChild(customizeButton);
         productButtons.appendChild(checkoutButton);
         productDiv.appendChild(productButtons);
+        cartContainer.appendChild(totalPrice);
 
         productGrid.appendChild(productDiv);
     });
@@ -330,7 +411,13 @@ function filter(category) {
     currentPage = 1;
     displayProducts();
     updatePageNumbers();
+
 }
+
+document.getElementById('selection').addEventListener("change", function() {
+    const selectedValue = this.value;
+    filter(selectedValue);
+});
 
 function updatePageNumbers() {
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -355,19 +442,26 @@ function updatePageNumbers() {
     }
   }
 
-  document.getElementById('prevPage').addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      displayProducts();
-    }
-  });
-  
-  document.getElementById('nextPage').addEventListener('click', () => {
-    const totalPages = Math.ceil(products.length / productsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      displayProducts();
-    }
-  });
+document.getElementById('prevPage').addEventListener('click', () => {
+if (currentPage > 1) {
+    currentPage--;
+    displayProducts();
+    updatePageNumbers();
+}
+});
+
+document.getElementById('nextPage').addEventListener('click', () => {
+const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+if (currentPage < totalPages) {
+    currentPage++;
+    displayProducts();
+    updatePageNumbers();
+}
+});
+
+
+
+
+
 displayProducts();
 updatePageNumbers();
