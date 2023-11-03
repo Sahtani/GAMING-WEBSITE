@@ -35,6 +35,13 @@ const config = {
         'primary': '#2E4BFF',
         'dark': '#080E1B',
         'blueText2': '#0E41F3',
+        'blutext3':'#1E3B79',
+        
+     
+        
+      },
+      boxShadow: {
+        'custom': '5px 5px 5px 5px #0036AC ',
       },
     },
   },
