@@ -1,3 +1,4 @@
+
 const burger = document.getElementById("burgerMenu");
 const navbar = document.getElementById("navbarMobile");
 
@@ -23,6 +24,9 @@ function toggleNavbar(event) {
 function hideNavbar() {
     navbar.style.display = "none";
 }
+
+
+
 
 // products
 const products = [
@@ -465,3 +469,4 @@ if (currentPage < totalPages) {
 
 displayProducts();
 updatePageNumbers();
+
