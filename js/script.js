@@ -503,5 +503,8 @@ if (currentPage < totalPages) {
 displayProducts();
 updatePageNumbers();
 
+<<<<<<< HEAD
 
 //PERSONNALISATION
+=======
+>>>>>>> fc54e957f5713276b5b41821c27e7908407a6492
