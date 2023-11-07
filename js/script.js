@@ -301,64 +301,59 @@ const products = [
 
 const buttonIds = ["All", "Moniteurs", "Casques", "Souris", "Claviers", "PC", "Consoles", "Jeux"];
 const buttons = {};
-const personalizeDiv = document.getElementById("personalize");
-const containerElements = document.getElementById("containerElements");
-const cartContainer = document.getElementById("cartContainer");
-const totalPrice = document.createElement('p');
-let totalPriceValue = 0;
-
-const shoppingCart = [];
-const cartBtn = document.getElementById("cartBtn");
-
-const productsPerPage = 6;
-let currentPage = 1;
+const productGrid = document.getElementById("product-grid");
 let filteredProducts = [...products];
 
 buttonIds.forEach(id => {
     buttons[id + "Btn"] = document.getElementById(id + "Btn");
-    buttons[id + "Btn"].addEventListener("click", function () {
+    console.log(buttons);
+    buttons[id + "Btn"].addEventListener("click", function() {
         filter(id);
     });
 });
 
-function displayProducts() {
-    const productGrid = document.getElementById('product-grid');
-    const startIdx = (currentPage - 1) * productsPerPage;
-    const endIdx = startIdx + productsPerPage;
-    totalPrice.className = "text-white";
+function filter(id) {
+    if (id === "All") {
+        filteredProducts = [...products];
+    } else {
+        filteredProducts = products.filter(product => product.category === id);
+    }
 
+    displayProducts();
+}
+
+function displayProducts () {
     productGrid.innerHTML = '';
 
-    filteredProducts.slice(startIdx, endIdx).forEach((product) => {
+    filteredProducts.forEach((element) => {
+    const productDiv = document.createElement("div");
+    productDiv.className = 'bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
 
-        const productDiv = document.createElement('div');
-        productDiv.className = 'bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
+    const productCategory = document.createElement("p");
+    productCategory.className = 'text-white bg-blueText w-min pr-14 pl-2';
+    productCategory.innerHTML = element.category;
 
-        const productCategory = document.createElement('p');
-        productCategory.className = 'text-white bg-blueText w-min pr-14 pl-2 clipped';
-        productCategory.textContent = product.category;
+    const productImage = document.createElement("img");
+    productImage.src = element.image;
+    productImage.alt = element.name;
 
-        const productImage = document.createElement('img');
-        productImage.src = product.image;
-        productImage.alt = product.name;
+    const productName = document.createElement("p");
+    productName.className = 'text-center text-white font-semibold';
+    productName.innerHTML = element.name;
 
-        const productName = document.createElement('p');
-        productName.className = 'text-center text-white font-semibold';
-        productName.textContent = product.name;
-
-        const productPrice = document.createElement('p');
-        productPrice.className = 'text-center text-primary font-semibold';
-        productPrice.textContent = product.price.toFixed(2) + ' DH';
+    const productPrice = document.createElement("p");
+    productPrice.className = 'text-center text-primary font-semibold';
+    productPrice.innerHTML = element.price.toFixed(2) + ' DH';
 
         const productButtons = document.createElement('div');
         productButtons.className = 'text-center';
         const customizeButton = document.createElement('a');
-        customizeButton.href = '#'; // pers
+        customizeButton.href = '#';
         customizeButton.className = 'bg-customize text-white pl-2 pr-2 hover:bg-primary transition-all customize';
         customizeButton.textContent = 'Customize';
         const checkoutButton = document.createElement('a');
         checkoutButton.href = '#';
-        checkoutButton.className = 'bg-checkout text-white pl-3 pr-3 hover:bg-primary transition-all checkout';
+        checkoutButton.className = 'bg-checkout text-white pl-3 pr-3 hover:bg-primary transition-all';
         checkoutButton.textContent = 'Checkout';
 
         checkoutButton.addEventListener("click", function() {
@@ -439,6 +434,7 @@ function displayProducts() {
         productButtons.appendChild(checkoutButton);
         productDiv.appendChild(productButtons);
         cartContainer.appendChild(totalPrice);
+
         productGrid.appendChild(productDiv);
     });
 }
@@ -500,11 +496,10 @@ if (currentPage < totalPages) {
     updatePageNumbers();
 }
 });
+
+
+
+
+
 displayProducts();
 updatePageNumbers();
-
-<<<<<<< HEAD
-
-//PERSONNALISATION
-=======
->>>>>>> fc54e957f5713276b5b41821c27e7908407a6492
