@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personnalisation de produits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                'Saira': ['Saira Condensed', 'sans-serif']
+                },
+                extend: {
+                colors: {
+                    'background': '#000614',
+                    'secondary': '#030029',
+                    'blueText': '#0036AC',
+                    'primary': '#2E4BFF',
+                    'dark': '#080E1B',
+                    'blueText2': '#0E41F3',
+                    'customize': '#17284C',
+                    'checkout': '#1E3B79',
+                },
+
+                animation: {
+                    "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+                    "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
+                },
+
+                keyframes: {
+                    "scaleup": {
+                    from: {
+                        transform: "scale(1)"
+                    },
+                    to: {
+                        transform: "scale(1.1)"
+                    }
+                    },
+
+                    "scaleup-mini": {
+                    from: {
+                        transform: "scale(1)"
+                    },
+                    to: {
+                        transform: "scale(1.03)"
+                    }
+                    }
+                }
+                },
+            },
+        }
+    </script>
+    
+    <script src="./js/script.js" defer></script>
+</head>
+<body class="bg-background" >
+    <h1 class="text-white">Personnalisez votre produit</h1>
+    <div class="pro">
+        
+
+    </div>
+
+    <!-- Choix de la mémoire -->
+    <label for="memory">Mémoire de stockage :</label>
+    <select id="memory">
+        <option value="250gb">250 Go</option>
+        <option value="500gb">500 Go</option>
+        <option value="1tb">1 To</option>
+        <option value="2tb">2 To</option>
+        <option value="3tb">3 To</option>
+    </select>
+
+    <!-- Choix de la carte graphique -->
+    <label for="gpu">Carte graphique :</label>
+    <select id="gpu">
+        <optgroup label="Nvidia">
+            <option value="RTX 4090">RTX 4090</option>
+            <option value="RTX 4070">RTX 4070</option>
+            <option value="GeForce RTX 4060">GeForce RTX 4060</option>
+            <option value="GeForce RTX 4080">GeForce RTX 4080</option>
+            <option value="RTX 4060 Ti">RTX 4060 Ti</option>
+        </optgroup>
+        <optgroup label="AMD">
+            <option value="Radeon RX 7900 XTX">Radeon RX 7900 XTX</option>
+            <option value="Radeon RX 7600">Radeon RX 7600</option>
+            <option value="Radeon RX 7800 XT">Radeon RX 7800 XT</option>
+            <option value="Radeon RX 7900 XT">Radeon RX 7900 XT</option>
+            <option value="Radeon RX 6700 XT">Radeon RX 6700 XT</option>
+        </optgroup>
+        <optgroup label="Intel">
+            <option value="Arc A750">Arc A750</option>
+            <option value="Arc A380">Arc A380</option>
+        </optgroup>
+    </select>
+
+    <!-- Choix du processeur -->
+    <label for="cpu">Processeur :</label>
+    <select id="cpu">
+        <optgroup label="AMD">
+            <option value="Ryzen 5 7600">Ryzen 5 7600</option>
+            <option value="Ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
+            <option value="Ryzen 7 5800X3D">Ryzen 7 5800X3D</option>
+            <option value="Ryzen 9 7950X3D">Ryzen 9 7950X3D</option>
+            <option value="Ryzen 5 7600X">Ryzen 5 7600X</option>
+            <option value="Ryzen 5 5600X">Ryzen 5 5600X</option>
+            <option value="Ryzen 5 5600G">Ryzen 5 5600G</option>
+        </optgroup>
+        <optgroup label="Intel">
+            <option value="Core i3-13100F">Core i3-13100F</option>
+            <option value="Core i5-13600K">Core i5-13600K</option>
+            <option value="Core i9-13900K">Core i9-13900K</option>
+            <option value="Core i7-13700K">Core i7-13700K</option>
+            <option value="Core i5-13400">Core i5-13400</option>
+        </optgroup>
+    </select>
+
+    <!-- Bouton pour ajouter au panier -->
+    <button id="addToCart">Ajouter au panier</button>
+
+    <div id="price">Prix : $0.00</div>
+
+    <script>
+        // Tableau pour stocker les données personnalisées
+        const produitsPersonnalises = [];
+
+        document.getElementById("addToCart").addEventListener("click", function () {
+            // Récupérer les valeurs des sélecteurs
+            const memory = document.getElementById("memory").value;
+            const gpu = document.getElementById("gpu").value;
+            const cpu = document.getElementById("cpu").value;
+
+            // Créer un objet représentant le produit personnalisé
+            const produitPersonnalise = {
+                memory: memory,
+                gpu: gpu,
+                cpu: cpu,
+                // Ajouter d'autres propriétés du produit si nécessaire
+            };
+
+            // Ajouter le produit personnalisé au tableau
+            produitsPersonnalises.push(produitPersonnalise);
+
+            // Mettre à jour l'affichage du prix (personnalisez selon vos besoins)
+            let price = 0;
+
+            // Logique de tarification (personnalisez selon vos besoins)
+
+            // Mettre à jour l'affichage du prix
+            document.getElementById("price").textContent = "Prix : $" + price.toFixed(2);
+        });
+        // Mettre à jour le prix en fonction des options sélectionnées
+let price = 0;
+
+const memoryPrice = {
+    '250gb': 50,
+    '500gb': 100,
+    '1tb': 150,
+    '2tb': 200,
+    '3tb': 250,
+};
+
+const gpuPrice = {
+    'RTX 4090': 600,
+    'RTX 4070': 500,
+    'GeForce RTX 4060': 400,
+    'GeForce RTX 4080': 550,
+    'RTX 4060 Ti': 450,
+    'Radeon RX 7900 XTX': 580,
+    'Radeon RX 7600': 480,
+    'Radeon RX 7800 XT': 530,
+    'Radeon RX 7900 XT': 620,
+    'Radeon RX 6700 XT': 550,
+    'Arc A750': 550,
+    'Arc A380': 450,
+};
+
+const cpuPrice = {
+    'Ryzen 5 7600': 250,
+    'Ryzen 7 7800X3D': 320,
+    'Ryzen 7 5800X3D': 300,
+    'Ryzen 9 7950X3D': 400,
+    'Ryzen 5 7600X': 260,
+    'Ryzen 5 5600X': 280,
+    'Ryzen 5 5600G': 270,
+    'Core i3-13100F': 230,
+    'Core i5-13600K': 300,
+    'Core i9-13900K': 400,
+    'Core i7-13700K': 350,
+    'Core i5-13400': 320,
+};
+
+document.getElementById("addToCart").addEventListener("click", function () {
+    // Récupérer les valeurs des sélecteurs
+    const memory = document.getElementById("memory").value;
+    const gpu = document.getElementById("gpu").value;
+    const cpu = document.getElementById("cpu").value;
+
+    // Calculer le prix en fonction des options choisies
+    price = memoryPrice[memory] + gpuPrice[gpu] + cpuPrice[cpu];
+
+    // Mettre à jour l'affichage du prix
+    document.getElementById("price").textContent = "Prix : $" + price.toFixed(2);
+});
+
+    </script>
+</body>
+</html>

@@ -75,12 +75,12 @@
             </div>
 
             <div>
-                <ul class="gap-5 md:flex" id="navbar">
-                    <li><a href="index.html" class="text-white hidden md:block">Home</a></li>
-                    <li><a href="catalog.html" class="text-white hidden md:block">Catalog</a></li>
-                    <li><a href="aboutus.html" class="text-white hidden md:block">About Us</a></li>
-                    <li><a href="contact.html" class="text-white hidden md:block">Contact Us</a></li>
-                    <li><a href="#" class="text-white p-5 text-3xl" id="cartBtn"><i class="bi bi-cart4"></i></a></li>
+                <ul class = "gap-5 md:flex" id = "navbar">
+                    <li><a href = "index.html" class = "text-white hidden md:block">Home</a></li>
+                    <li><a href = "catalog.html" class = "text-white hidden md:block">Catalog</a></li>
+                    <li><a href = "aboutus.html" class = "text-white hidden md:block">About Us</a></li>
+                    <li><a href = "contact.html" class = "text-white hidden md:block">Contact Us</a></li>
+                    <li><a href = "#" class = "text-white p-5 text-3xl" id = "cartBtn"><i class="bi bi-cart4"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -156,107 +156,9 @@
 
     <!-- <div id = "overlay" class = "fixed top-0 left-0 w-full h-full bg-black z-[40] opacity-50"></div> -->
 
-    <section id="productDetails" class="bg-gradient-to-r from-secondary to-background w-4/12">
-        <div class="optionsContainer">
-
-            <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden" id="modal">
-                <div
-                    class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                    <div class="fixed inset-0 transition-opacity">
-                        <div class="absolute inset-0 bg-gray-900 opacity-75">
-                    </div>
-                    <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-               
-                    <div class="  inline-block align-center  bg-gradient-to-r from-secondary to-background rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                        role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                        <div class="  bg-opacity-10 border-dark border-2 pb-3 w-2/3 sm:top-10 flex flex-col items-center  ">
-                            <img src="" alt="img" id="popUpImg">
-                            <p class="text-center text-white font-semibold" id="popUpName">name</p>
-                            <p class="text-center text-primary font-semibold pb-1" id="popUpPrice">price</p>
-
-                        </div>
-                        <div class="flex flex-col items-center gap-5">
-
-                            <div class=" bg-blueText/60 flex items-center justify-around gap-6 w-60 my-6 py-1">
-
-                                <select id="memory" class="  list text-white text-xl bg-blueText/25 ">
-                                    <option value="250 Go HDD" selected disabled hidden>TYPE OF STORAGE</option>
-                                    <optgroup label="HDD">
-                                        <option class="bg-blutext3" value="250gb">250 Go HDD</option>
-                                        <option value="500gb">500 Go HDD</option>
-                                        <option value="1tb">1 To HDD</option>
-                                        <option value="2tb">2 To HDD</option>
-                                        <option value="3tb">3 To HDD</option>
-                                    </optgroup>
-                                    <optgroup label="SSD">
-                                        <option value="250gb_ssd">250 Go SSD</option>
-                                        <option value="500gb_ssd">500 Go SSD</option>
-                                        <option value="1tb_ssd">1 To SSD</option>
-                                        <option value="2tb_ssd">2 To SSD</option>
-                                        <option value="3tb_ssd">3 To SSD</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                            <!-- Choix de la carte graphique -->
-                            <div class="bg-blueText/60 flex items-center justify-around gap-6 w-60 my-6 py-1">
-                                <select id="gpu" class="  list text-white text-xl bg-blueText/25 ">
-                                    <option value="RTX 4090" selected disabled hidden>GPU</option>
-                                    <optgroup label="Nvidia">
-
-                                        <option value="RTX 4090">RTX 4090</option>
-                                        <option value="RTX 4070">RTX 4070</option>
-                                        <option value="GeForce RTX 4060">GeForce RTX 4060</option>
-                                        <option value="GeForce RTX 4080">GeForce RTX 4080</option>
-                                        <option value="RTX 4060 Ti">RTX 4060 Ti</option>
-                                    </optgroup>
-                                    <optgroup label="AMD">
-                                        <option value="Radeon RX 7900 XTX">Radeon RX 7900 XTX</option>
-                                        <option value="Radeon RX 7600">Radeon RX 7600</option>
-                                        <option value="Radeon RX 7800 XT">Radeon RX 7800 XT</option>
-                                        <option value="Radeon RX 7900 XT">Radeon RX 7900 XT</option>
-                                        <option value="Radeon RX 6700 XT">Radeon RX 6700 XT</option>
-                                    </optgroup>
-                                    <optgroup label="Intel">
-                                        <option value="Arc A750">Arc A750</option>
-                                        <option value="Arc A380">Arc A380</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                            <!-- Choix du processeur -->
-                            <div class="bg-blueText/60 flex items-center justify-around gap-6 w-60 my-6 py-1">
-                                <select id="cpu" class="  list text-white text-xl bg-blueText/25 ">
-                                    <option value="Ryzen 5 7600" selected disabled hidden>CPU</option>
-                                    <optgroup label="AMD">
-
-                                        <option value="Ryzen 5 7600">Ryzen 5 7600</option>
-                                        <option value="Ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
-                                        <option value="Ryzen 7 5800X3D">Ryzen 7 5800X3D</option>
-                                        <option value="Ryzen 9 7950X3D">Ryzen 9 7950X3D</option>
-                                        <option value="Ryzen 5 7600X">Ryzen 5 7600X</option>
-                                        <option value="Ryzen 5 5600X">Ryzen 5 5600X</option>
-                                        <option value="Ryzen 5 5600G">Ryzen 5 5600G</option>
-                                    </optgroup>
-                                    <optgroup label="Intel">
-                                        <option value="Core i3-13100F">Core i3-13100F</option>
-                                        <option value="Core i5-13600K">Core i5-13600K</option>
-                                        <option value="Core i9-13900K">Core i9-13900K</option>
-                                        <option value="Core i7-13700K">Core i7-13700K</option>
-                                        <option value="Core i5-13400">Core i5-13400</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                    
-                    </div>
-                    <div class="bg-gray-200 px-4 py-3 text-right">
-                        <button type="button" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
-                            onclick="toggleModal()"><i class="fas fa-times"></i> Cancel</button>
-                        <button id="addToCart" type="button" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"><i
-                                class="fas fa-plus"></i> add to card</button>
-                    </div>
-               
-                </div>
-            </div>
-        </div>
+    <section class = "bg-gradient-to-r from-secondary to-background w-4/12">
+        <p class = "pl-5 text-white text-lg">Shopping Cart</p>
+        <div class = "border border-white flex flex-col" id = "cartContainer">
         </div>
     </section>
 
