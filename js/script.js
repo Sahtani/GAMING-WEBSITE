@@ -258,9 +258,13 @@ const products = [
 
 const buttonIds = ["All", "Moniteurs", "Casques", "Souris", "Claviers", "PC", "Consoles", "Jeux"];
 const buttons = {};
+const productsPerPage = 6;
+let currentPage = 1;
+const selection = document.getElementById("selection");
 const productGrid = document.getElementById("product-grid");
 let filteredProducts = [...products];
 
+// function to check what button you clicked
 buttonIds.forEach(id => {
     buttons[id + "Btn"] = document.getElementById(id + "Btn");
     console.log(buttons);
@@ -269,20 +273,40 @@ buttonIds.forEach(id => {
     });
 });
 
+// filtrage mobile
+selection.onchange = changeOption;
+
+function changeOption() {
+    var value = this.value;
+    currentPage = 1;
+    filter(value);
+}
+
+// filtrage desktop
 function filter(id) {
     if (id === "All") {
         filteredProducts = [...products];
     } else {
         filteredProducts = products.filter(product => product.category === id);
     }
+    currentPage = 1;
 
     displayProducts();
 }
 
+
+// function to display products
 function displayProducts () {
     productGrid.innerHTML = '';
 
-    filteredProducts.forEach((element) => {
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+
+    // important, this is how the program knows which products to display
+    const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
+
+    productsToDisplay.forEach((element) => {
+    // create the product
     const productDiv = document.createElement("div");
     productDiv.className = 'bg-blueText bg-opacity-10 border-dark border-2 pb-3 hover:animate-scaleup-mini monitors product';
 
@@ -322,7 +346,59 @@ function displayProducts () {
     productDiv.appendChild(productButtons);
     productButtons.appendChild(customizeButton);
     productButtons.appendChild(checkoutButton);
+
+    updatePageNumbers();
     });
 }
+
+const pageNumbers = document.getElementById("pageNumbers");
+const prevPageButton = document.getElementById("prevPage");
+const nextPageButton = document.getElementById("nextPage");
+
+function updatePageNumbers() {
+    // reset numbers
+    pageNumbers.innerHTML = '';
+
+    // calculate how many pages are there
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+    // start creating the pages
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement("button");
+        pageButton.textContent = i;
+        pageButton.addEventListener("click", () => {
+            currentPage = i;
+            displayProducts();
+            updatePageNumbers();
+        });
+
+        if (i === currentPage) {
+            pageButton.classList.add("bg-primary", "text-white", "p-4");
+        } else {
+            pageButton.classList.add("bg-secondary", "text-primary", "p-4");
+        }
+
+        pageNumbers.appendChild(pageButton);
+    }
+}
+
+// function to change page when click on previous
+prevPageButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayProducts();
+        updatePageNumbers();
+    }
+});
+
+// function to change page when click on next page
+nextPageButton.addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        displayProducts();
+        updatePageNumbers();
+    }
+});
 
 displayProducts();
