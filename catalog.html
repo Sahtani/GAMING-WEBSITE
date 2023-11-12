@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@
 
 <body class = "font-Saira Condensed bg-gradient-to-r from-secondary to-background">
     <header>
-        <nav class = "bg-background flex items-center justify-between fixed w-full z-50">
+        <nav class = "bg-background flex items-center justify-between fixed w-full z-40">
             <div class = "flex items-center">
                 <li><a href = "#" id = "burgerMenu" class = "text-white text-4xl md:hidden"><i class="bi bi-list"></i></a></li>
                 <img src="./img/logo.png" alt="" class = "w-8/12 p-2 md:w-6/12">
@@ -76,7 +76,12 @@
                     <li><a href = "#" class = "text-white hidden md:block">Catalog</a></li>
                     <li><a href = "#" class = "text-white hidden md:block">About Us</a></li>
                     <li><a href = "#" class = "text-white hidden md:block">Contact Us</a></li>
-                    <li><a href = "#" class = "text-white p-5 text-3xl" id = "cartBtn"><i class="bi bi-cart4"></i></a></li>
+                    <li><a href = "#" class = "text-white p-5 text-3xl" id = "cartBtn">
+                        <span class = "bg-red-500 rounded-full px-2 absolute right-[1%] bottom-1/4 text-lg">0</span>
+                        <i class="bi bi-cart4" id = "cartIcon">
+
+                        </i>
+                    </a></li>
                 </ul>
             </div>
         </nav>
@@ -139,6 +144,24 @@
         <div class = "border border-white flex flex-col" id = "cartContainer">
         </div>
     </section>
+
+    <div class = "bg-background border-dark border-2 pb-3 w-1/4 fixed top-20 left-3/4 listCart hidden">
+        <div class = "flex items-center">
+            <img src="./img/alienwarex17.png" alt="" class = "w-1/4">
+    
+            <div class = "w-2/4">
+                <p class = "text-center text-white font-semibold">Alienware x17 R2</p>
+                <p class = "text-center text-primary font-semibold">47 690,00 DH</p>
+                <div class = "text-center">
+                    <a href="#" class = "bg-customize text-white text-xs pl-2 pr-2 minus"><</a>
+                    <span class = "text-white px-2">0</span>
+                    <a href="#" class = "bg-checkout text-white text-xs pl-2 pr-2 plus">></a>
+                </div>
+            </div>
+        </div>
+
+        <div class = "totalPrice text-center text-primary font-semibold">Total Price: 50 DH</div>
+    </div>
 
 
     <footer class = "bg-background mt-10">
