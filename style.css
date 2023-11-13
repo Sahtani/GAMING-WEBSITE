@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.popup{
+    width: 400px;
+    background: #d7d7d7;
+    border-radius: 6px;
+    top: 0;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30x 30px;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+   
+}
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+
+}
+
+
+.popup button{
+    width: 30%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    background: rgb(69, 80, 97);
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: aliceblue;
+}
+td{
+    padding: 10px 20px ;
+}
+.poptable{
+    
+}
+
+
+@media (max-width: 480px){
+   th{
+    padding: 0;
+   }
+    td{
+        font-size: 9px;
+        padding: 0;
+    }
+
+ 
+}
+@media (max-width: 768px){
+    #num{
+        font-size: px;
+        padding: 0;
+       }
+       #produit{
+        font-size: px;
+        padding: 0;
+       }
+       #quantite{
+        font-size: px;
+        padding: 0;
+       }
+
+    td{
+            font-size: 9px;
+            padding: 0;
+        }
+     
+    }
