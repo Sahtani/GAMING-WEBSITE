@@ -277,8 +277,11 @@ const listCartHTML = document.querySelector(".listCart");
 let totalCounter = document.querySelector("#navbar span")
 let finalPrice = 0;
 const cartButton = document.getElementById("cartIcon");
+<<<<<<< HEAD
 const cosBtn = document.querySelectorAll(".customize");
 let currentGpu;
+=======
+>>>>>>> dfddb099257a55fc3c0136455081cf3de7af7b33
 
 // create ids for each one
 products.forEach(product => {
@@ -352,6 +355,7 @@ function displayProducts () {
 
     const productButtons = document.createElement("div");
     productButtons.className = 'text-center';
+<<<<<<< HEAD
     const customizeButton = document.createElement("a");
 
     if (element.customizable === true) {
@@ -360,18 +364,30 @@ function displayProducts () {
         customizeButton.innerHTML = "Customize";
         productButtons.appendChild(customizeButton);
     }
+=======
+
+    const customizeButton = document.createElement("a");
+    customizeButton.className = 'bg-customize text-white pl-2 pr-2 hover:bg-primary transition-all customize';
+    customizeButton.href = "#";
+    customizeButton.innerHTML = "Customize";
+>>>>>>> dfddb099257a55fc3c0136455081cf3de7af7b33
 
     const checkoutButton = document.createElement("a");
     checkoutButton.className = 'bg-checkout text-white pl-3 pr-3 hover:bg-primary transition-all';
     checkoutButton.innerHTML = "Checkout";
 
     // Event listener for adding a product to the cart
+<<<<<<< HEAD
     checkoutButton.addEventListener('click', (event) => {
+=======
+    customizeButton.addEventListener('click', (event) => {
+>>>>>>> dfddb099257a55fc3c0136455081cf3de7af7b33
         let id_product = element.id;
         console.log(element.id);
         addToCart(id_product, element.name, element.price);
     });
 
+<<<<<<< HEAD
     customizeButton.addEventListener('click', (event) => {
         console.log("help")
         if (element.category === "PC") {
@@ -415,12 +431,18 @@ function displayProducts () {
           counter++;
     });
 
+=======
+>>>>>>> dfddb099257a55fc3c0136455081cf3de7af7b33
     productGrid.appendChild(productDiv);
     productDiv.appendChild(productCategory);
     productDiv.appendChild(productImage);
     productDiv.appendChild(productName);
     productDiv.appendChild(productPrice);
     productDiv.appendChild(productButtons);
+<<<<<<< HEAD
+=======
+    productButtons.appendChild(customizeButton);
+>>>>>>> dfddb099257a55fc3c0136455081cf3de7af7b33
     productButtons.appendChild(checkoutButton);
 
     updatePageNumbers();
@@ -464,6 +486,7 @@ prevPageButton.addEventListener("click", () => {
         currentPage--;
         displayProducts();
         updatePageNumbers();
+<<<<<<< HEAD
     }
 });
 
@@ -748,3 +771,149 @@ function toggleModal(category) {
   
       addOptionsToDropdownWithOptionsAndPrices(frequencyOptions, "frequencySelect");
       addOptionsToDropdownWithOptionsAndPrices(sizeOptions, "sizeSelect");  
+=======
+    }
+});
+
+// function to change page when click on next page
+nextPageButton.addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        displayProducts();
+        updatePageNumbers();
+    }
+});
+
+// Function to add a product to the cart
+const addToCart = (product_id, product_name, product_price) => {
+    let positionProduct = cart.findIndex((value) => value.product_id == product_id);
+    if (cart.length <= 0) {
+        cart = [{
+            product_id: product_id,
+            product_name: product_name,
+            product_price: product_price,
+            quantity: 1
+        }];
+    } else if (positionProduct < 0) {
+        cart.push({
+            product_id: product_id,
+            product_name: product_name,
+            product_price: product_price, 
+            quantity: 1
+        });
+    } else {
+        cart[positionProduct].quantity = cart[positionProduct].quantity + 1;
+    }
+    addCartToHTML();
+    addCartToMemory();
+};
+
+const addCartToHTML = () => {
+    listCartHTML.innerHTML = '';
+    
+    finalPrice = 0;
+    let totalQuantity = 0;
+    if (cart.length > 0) {
+        cart.forEach(item => {
+            totalQuantity = totalQuantity + item.quantity;
+            let newItem = document.createElement('div');
+            newItem.classList.add('item');
+            newItem.dataset.id = item.product_id;
+
+            let positionProduct = products.findIndex((value) => value.id == item.product_id);
+            let info = products[positionProduct];
+            finalPrice += (info.price * item.quantity);
+            listCartHTML.appendChild(newItem);
+            newItem.innerHTML = `
+                <div class = "flex items-center">
+                    <img src="${info.image}" alt="" class = "w-1/4 image">
+                    <div class = "w-2/4">
+                        <p class = "text-center text-white font-semibold name">${info.name}</p>
+                        <p class = "text-center text-primary font-semibold singlePrice">${info.price * item.quantity}</p>
+                        <div class = "text-center">
+                            <a href="#" class = "bg-customize text-white text-xs pl-2 pr-2 minus"><</a>
+                            <span class = "text-white px-2">${item.quantity}</span>
+                            <a href="#" class = "bg-checkout text-white text-xs pl-2 pr-2 plus">></a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    listCartHTML.innerHTML += `
+    <div class = "flex">
+    <button class="close w-full bg-secondary text-white">Close</button>
+    <button class="checkOut w-full bg-primary text-white">Check out</button>
+    </div>
+
+    <div class = "totalPrice text-center text-primary font-semibold">${finalPrice}</div>
+    `
+    totalCounter.innerText = totalQuantity;
+};
+
+const addCartToMemory = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+listCartHTML.addEventListener('click', (event) => {
+    let positionClick = event.target;
+    let itemElement = positionClick.closest('.item');
+
+    if (itemElement) {
+        let product_id = itemElement.dataset.id;
+        let type = 'minus';
+        
+        if (positionClick.classList.contains('plus')) {
+            type = 'plus';
+        }
+
+        changeQuantityCart(product_id, type);
+    }
+});
+
+const changeQuantityCart = (product_id, type) => {
+    let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
+    if (positionItemInCart >= 0) {
+        switch (type) {
+            case 'plus':
+                cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
+                break;
+
+            default:
+                let changeQuantity = cart[positionItemInCart].quantity - 1;
+                if (changeQuantity > 0) {
+                    cart[positionItemInCart].quantity = changeQuantity;
+                } else {
+                    cart.splice(positionItemInCart, 1);
+                }
+                break;
+        }
+    }
+    addCartToHTML();
+    addCartToMemory();
+};
+
+cartButton.addEventListener('click', () => {
+    if (totalCounter.innerHTML != "0") {
+        listCartHTML.classList.toggle("hidden");
+    }
+});
+
+totalCounter.addEventListener('click', () => {
+    if (totalCounter.innerHTML != "0") {
+        listCartHTML.classList.toggle("hidden");
+    }
+});
+
+function init() {
+    if (localStorage.getItem('cart')) {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        addCartToHTML();
+    }
+}
+
+init();
+displayProducts();
+>>>>>>> dfddb099257a55fc3c0136455081cf3de7af7b33
