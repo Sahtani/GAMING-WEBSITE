@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <!-- <link rel="stylesheet" href="./dist/output.css" /> -->
-  <link rel="stylesheet" href="./dist/output.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,87 +14,84 @@
     href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-  <!-- js -->
-  <script src="./js/script.js" defer></script>
-  <script src="./js/carroussel.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                fontFamily: {
-                'Saira': ['Saira Condensed', 'sans-serif']
-                },
-                extend: {
-                colors: {
-                    'background': '#000614',
-                    'secondary': '#030029',
-                    'blueText': '#0036AC',
-                    'primary': '#2E4BFF',
-                    'dark': '#080E1B',
-                    'blueText2': '#0E41F3',
-                    'customize': '#17284C',
-                    'checkout': '#1E3B79',
-                },
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          'Saira': ['Saira Condensed', 'sans-serif']
+        },
+        extend: {
+          colors: {
+            'background': '#000614',
+            'secondary': '#030029',
+            'blueText': '#0036AC',
+            'primary': '#2E4BFF',
+            'dark': '#080E1B',
+            'blueText2': '#0E41F3',
+            'customize': '#17284C',
+            'checkout': '#1E3B79',
+          },
 
-                animation: {
-                    "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
-                    "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
-                },
+          animation: {
+            "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+            "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
+          },
 
-                keyframes: {
-                    "scaleup": {
-                    from: {
-                        transform: "scale(1)"
-                    },
-                    to: {
-                        transform: "scale(1.1)"
-                    }
-                    },
-
-                    "scaleup-mini": {
-                    from: {
-                        transform: "scale(1)"
-                    },
-                    to: {
-                        transform: "scale(1.03)"
-                    }
-                    }
-                }
-                },
+          keyframes: {
+            "scaleup": {
+              from: {
+                transform: "scale(1)"
+              },
+              to: {
+                transform: "scale(1.1)"
+              }
             },
-        }
-    </script>
+
+            "scaleup-mini": {
+              from: {
+                transform: "scale(1)"
+              },
+              to: {
+                transform: "scale(1.03)"
+              }
+            }
+          }
+        },
+      },
+    }
+  </script>
 </head>
 
 
-<body class = "font-Saira Condensed bg-gradient-to-r from-secondary to-background">
-    <header>
-        <nav class = "bg-background flex items-center justify-between fixed w-full z-50">
-            <div class = "flex items-center">
-                <li><a href = "#" id = "burgerMenu" class = "text-white text-4xl md:hidden"><i class="bi bi-list"></i></a></li>
-                <img src="./img/logo.png" alt="" class = "w-8/12 p-2 md:w-6/12">
-            </div>
+<body class="font-Saira Condensed bg-gradient-to-r from-secondary to-background">
+  <header>
+    <nav class="bg-background flex items-center justify-between fixed w-full z-50">
+      <div class="flex items-center">
+        <li><a href="#" id="burgerMenu" class="text-white text-4xl md:hidden"><i class="bi bi-list"></i></a></li>
+        <img src="./img/logo.png" alt="" class="w-8/12 p-2 md:w-6/12">
+      </div>
 
-            <div>
-                <ul class = "gap-5 md:flex" id = "navbar">
-                    <li><a href = "#" class = "text-white hidden md:block">Home</a></li>
-                    <li><a href = "#" class = "text-white hidden md:block">Catalog</a></li>
-                    <li><a href = "#" class = "text-white hidden md:block">About Us</a></li>
-                    <li><a href = "#" class = "text-white hidden md:block">Contact Us</a></li>
-                    <li><a href = "#" class = "text-white p-5 text-3xl" id = "cartBtn"><i class="bi bi-cart4"></i></a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <ul id = "navbarMobile" class = "fixed bg-gradient-to-r from-secondary to-background text-center w-2/6 h-screen hidden z-50">
-            <li><img src="./img/logo.png" alt=""></li>
-            <li><a href = "#" class = "text-white">Home</a></li>
-            <li><a href = "#" class = "text-white">Catalog</a></li>
-            <li><a href = "#" class = "text-white">About Us</a></li>
-            <li><a href = "#" class = "text-white">Contact Us</a></li>
+      <div>
+        <ul class="gap-5 md:flex" id="navbar">
+          <li><a href="index.html" class="text-xl   text-white hidden md:block">Home</a></li>
+          <li><a href="catalog.html" class=" text-xl text-white hidden md:block">Catalog</a></li>
+          <li><a href="aboutus.html" class=" text-xl text-white hidden md:block">About Us</a></li>
+          <li><a href="contact.html" class="text-xl text-white hidden md:block">Contact Us</a></li>
+          <li><a href="#" class="text-white p-5 text-3xl" id="cartBtn"><i class="bi bi-cart4"></i></a></li>
         </ul>
-    </header>
+      </div>
+    </nav>
+
+    <ul id="navbarMobile"
+      class="fixed bg-gradient-to-r from-secondary to-background text-center w-2/6 h-screen hidden z-50">
+      <li><img src="./img/logo.png" alt=""></li>
+      <li><a href="index.html" class="text-white">Home</a></li>
+      <li><a href="catalog.html" class="text-white">Catalog</a></li>
+      <li><a href="aboutus.html" class="text-white">About Us</a></li>
+      <li><a href="contact.html" class="text-white">Contact Us</a></li>
+    </ul>
+  </header>
 
 
   <div class=" flex flex-col md:flex-row gap-4 md:gap-0 justify-around items-center pt-32">
@@ -103,46 +99,8 @@
     <div class="bg-white shadow-lg p-2 md:p-9 w-9/12 md:w-6/12">
       <h1 class="font-bold text-xl mb-4">Send us a message</h1>
       <form onsubmit="return validateForm()" class="grid grid-rows-3 grid-cols-1 gap-4 md:grid-cols-2">
-<body class="font-Saira bg-gradient-to-r from-secondary to-background">
-  <header>
-    <nav class="bg-background flex items-center justify-between w-full">
-      <div class="flex items-center">
-        <li>
-          <a href="#" id="burgerMenu" class="text-white text-4xl hidden xs:block">
-            <i class="bi bi-list"></i>
-          </a>
-        </li>
-        <img src="./img/logo.png" alt="" class="xs:w-8/12 p-2 w-6/12" />
-      </div>
-
-      <div>
-        <ul class="gap-5 flex" id="navbar">
-          <li><a href="#" class="text-white xs:hidden block">Home</a></li>
-          <li><a href="#" class="text-white xs:hidden block">Catalog</a></li>
-          <li><a href="#" class="text-white xs:hidden block">About Us</a></li>
-          <li><a href="#" class="text-white xs:hidden block">Contact Us</a></li>
-          <li><a href="#" class="text-white p-5 text-3xl xs:block"><i class="bi bi-cart4"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <ul id="navbarMobile"
-      class="absolute bg-gradient-to-r from-secondary to-background text-center w-2/6 h-screen hidden">
-      <li><img src="./img/logo.png" alt="" /></li>
-      <li><a href="#" class="text-white">Home</a></li>
-      <li><a href="#" class="text-white">Catalog</a></li>
-      <li><a href="#" class="text-white">About Us</a></li>
-      <li><a href="#" class="text-white">Contact Us</a></li>
-    </ul>
-  </header>
-
-  <div class=" flex justify-around items-center mt-8 xs:flex-col">
-
-    <div class="bg-white shadow-lg p-9 w-6/12 xs:w-9/12 ">
-      <h1 class="font-bold text-xl mb-4">Send us a message</h1>
-      <form onsubmit="return validateForm()" class="grid grid-rows-3 grid-cols-2">
         <div class="flex flex-col">
-          <label for=""  class="text-gray-400">NAME*</label>
+          <label for="" class="text-gray-400">NAME*</label>
           <input type="text" id="name" class="placeholder-black border-b border-black w-5/6" placeholder="Your Name">
           <div id="nameErr" class="text-red-500 text-xs"></div>
         </div>
@@ -153,19 +111,22 @@
         </div>
         <div class="flex flex-col ">
           <label for="" class="text-gray-400">EMAIL*</label>
-          <input type="text" id="email" class="placeholder-black border-b border-black w-5/6 " placeholder="Enter your email">
+          <input type="text" id="email" class="placeholder-black border-b border-black w-5/6 "
+            placeholder="Enter your email">
           <div id="emailErr" class="text-red-500 text-xs"></div>
         </div>
         <div class="flex flex-col ">
           <label for="" class="text-gray-400">Company Name</label>
-          <input type="text" id="company" class="placeholder-black border-b border-black w-5/6" placeholder="Company Name">
+          <input type="text" id="company" class="placeholder-black border-b border-black w-5/6"
+            placeholder="Company Name">
           <div id="companyErr" class="text-red-500 text-xs"></div>
         </div>
         <div class="flex flex-col">
           <label for="" class="text-gray-400">MESSAGE*</label>
-          <textarea type="text" id="message" class="resize-none placeholder-black border-b border-black w-7/6" rows="4" placeholder="write your message"></textarea>
+          <textarea type="text" id="message" class="resize-none placeholder-black border-b border-black w-7/6" rows="4"
+            placeholder="write your message"></textarea>
           <div id="messageErr" class="text-red-500 text-xs"></div>
-          
+
           <div>
             <button type="submit" class="bg-checkout hover:bg-blue-700 text-white mt-6 font-bold py-2 px-8 ">
               SUBMIT
@@ -181,7 +142,7 @@
       </form>
     </div>
 
-    <img src="image 13.png" alt="" class="w-4/12 h-2/12 xs:mt-12 xs:h-8/12 xs:w-8/12">
+    <img src="./img/image 13.png" alt="" class=" xs:mt-12 w-8/12 md:w-4/12">
   </div>
 
 
@@ -214,9 +175,10 @@
       <p class="text-slate-400 text-center">© 2023 NightCrawlers</p>
     </div>
   </footer>
-  <script src="js/validator.js"></script>
+ 
   <!-- js -->
-  <script src="./js/script.js"></script>
+  <script src="./js/script.js"></script> 
+  <script src="js/validator.js"></script>
 </body>
 
 </html>
