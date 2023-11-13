@@ -22,24 +22,15 @@ btn1.addEventListener('click', () => {
 
 
 // Supposez que vous ayez une liste d'articles dans le panier
-const panier = [
-  { nom: 'Produit 1', quantite: 2, prix: 10 },
- { nom: 'Produit 2', quantite: 1, prix: 20 },
- { nom: 'Produit 3', quantite: 10, prix: 15 },
- { nom: 'Produit 3', quantite: 20, prix: 90 },
- { nom: 'Produit 3', quantite: 90, prix: 15 },
- { nom: 'Produit 3', quantite: 13, prix: 15 },
- { nom: 'Produit 3', quantite: 33, prix: 15 }
- 
-];
+const panier = JSON.parse(localStorage.getItem('cart'));
 
 
 
 // Convertissez la liste en format JSON et stockez-la dans localStorage
-localStorage.setItem('panier', JSON.stringify(panier));
+localStorage.setItem('cart', JSON.stringify(panier));
 
 
-const panierRecupe = JSON.parse(localStorage.getItem('panier'));
+const panierRecupe = JSON.parse(localStorage.getItem('cart'));
 const tableBody = document.getElementById('panierTableBody');
 let totalHT = 0;
 
@@ -50,16 +41,16 @@ const row = document.createElement('tr');
 
   // Create table cells for each property (nom, quantite, prix)
   const nomCell = document.createElement('td');
-  nomCell.textContent = item.nom;
+  nomCell.textContent = item.product_name;
 
   const quantiteCell = document.createElement('td');
-  quantiteCell.textContent = item.quantite;
+  quantiteCell.textContent = item.quantity;
 
   const prixUnitaireCell = document.createElement('td');
-  prixUnitaireCell.textContent = '$' + item.prix;
+  prixUnitaireCell.textContent = '$' + item.product_price;
 
   const prixTotalCell = document.createElement('td');
-  const prixTotal = item.quantite * item.prix;
+  const prixTotal = item.quantity * item.product_price;
   prixTotalCell.textContent = '$' + prixTotal;
 // Append the cells to the row
 

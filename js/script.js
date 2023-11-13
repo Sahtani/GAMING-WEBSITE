@@ -256,6 +256,14 @@ const products = [
     }
 ]
 
+products.forEach(product => {
+    if (product.category === "PC" || product.category === "Moniteurs" || product.category === "Casques" || product.category === "Souris") {
+        product.customizable = true;
+    } else {
+        product.customizable = false;
+    }
+});
+
 const buttonIds = ["All", "Moniteurs", "Casques", "Souris", "Claviers", "PC", "Consoles", "Jeux"];
 const buttons = {};
 const productsPerPage = 6;
@@ -269,6 +277,8 @@ const listCartHTML = document.querySelector(".listCart");
 let totalCounter = document.querySelector("#navbar span")
 let finalPrice = 0;
 const cartButton = document.getElementById("cartIcon");
+const cosBtn = document.querySelectorAll(".customize");
+let currentGpu;
 
 // create ids for each one
 products.forEach(product => {
@@ -342,21 +352,67 @@ function displayProducts () {
 
     const productButtons = document.createElement("div");
     productButtons.className = 'text-center';
-
     const customizeButton = document.createElement("a");
-    customizeButton.className = 'bg-customize text-white pl-2 pr-2 hover:bg-primary transition-all customize';
-    customizeButton.href = "#";
-    customizeButton.innerHTML = "Customize";
+
+    if (element.customizable === true) {
+        customizeButton.className = 'bg-customize text-white pl-2 pr-2 hover:bg-primary transition-all customize';
+        customizeButton.href = "#";
+        customizeButton.innerHTML = "Customize";
+        productButtons.appendChild(customizeButton);
+    }
 
     const checkoutButton = document.createElement("a");
     checkoutButton.className = 'bg-checkout text-white pl-3 pr-3 hover:bg-primary transition-all';
     checkoutButton.innerHTML = "Checkout";
 
     // Event listener for adding a product to the cart
-    customizeButton.addEventListener('click', (event) => {
+    checkoutButton.addEventListener('click', (event) => {
         let id_product = element.id;
         console.log(element.id);
         addToCart(id_product, element.name, element.price);
+    });
+
+    customizeButton.addEventListener('click', (event) => {
+        console.log("help")
+        if (element.category === "PC") {
+            toggleModal("PC");
+          } else if (element.category === "Souris") {
+            toggleModal("Souris");
+          } else if (element.category ==="Moniteurs") {
+            toggleModal("Moniteurs");
+          } else if (element.category ==="Casques") {
+            toggleModal("Casques");
+          }
+      
+          popUpImg.src = element.image;
+          popUpName.textContent = element.name;
+          popUpPrice.textContent = element.price;
+      
+          // Add an event listener for the "Add to Cart" button
+          const addtocart2 = document.getElementById("addToCart");
+          addtocart2.addEventListener("click", () => {
+            if (element.category === "PC") {
+                cart.push({
+                    product_id: element.id,
+                    product_name: `${element.name} ${currentGpu}`,
+                    product_price: price,
+                    quantity: 1,
+                });
+            } else {
+                cart.push({
+                    product_id: element.id,
+                    product_name: `${element.name} - Customized`,
+                    product_price: price,
+                    quantity: 1,
+                    // Add other customization options based on the category
+                });
+            }
+    
+            addCartToHTML();
+            addCartToMemory();
+          });
+      
+          counter++;
     });
 
     productGrid.appendChild(productDiv);
@@ -365,7 +421,6 @@ function displayProducts () {
     productDiv.appendChild(productName);
     productDiv.appendChild(productPrice);
     productDiv.appendChild(productButtons);
-    productButtons.appendChild(customizeButton);
     productButtons.appendChild(checkoutButton);
 
     updatePageNumbers();
@@ -553,3 +608,143 @@ function init() {
 
 init();
 displayProducts();
+
+function toggleModal(category) {
+    const productSection = document.getElementById("product_section");
+    productSection.classList.toggle("hidden");
+  
+    // Masque toutes les sections de catégories
+    const allCategorySections = document.querySelectorAll(".category-section");
+    allCategorySections.forEach((section) => {
+      section.classList.add("hidden");
+    });
+  
+    // Affiche la section correspondant à la catégorie spécifiée
+    const categorySection = document.getElementById(category);
+    if (categorySection) {
+      categorySection.classList.toggle("hidden");
+    }
+  }
+  let popUpImg = document.getElementById("popUpImg");
+  let popUpPrice = document.getElementById("popUpPrice");
+  let popUpName = document.getElementById("popUpName");
+  let memory = document.getElementById("memory");
+  let gpu = document.getElementById("gpu");
+  let cpu = document.getElementById("cpu");
+  let memorySelect, gpuSelect, cpuSelect;
+  
+  // customize product
+  
+  const memoryPrice = {
+    "250gb": 50,
+    "500gb": 100,
+    "1tb": 150,
+    "2tb": 200,
+    "3tb": 250,
+    "250gb_ssd": 80,
+    "500gb_ssd": 130,
+    "1tb_ssd": 180,
+    "2tb_ssd": 230,
+    "3tb_ssd": 280,
+  };
+  
+  const gpuPrice = {
+    "RTX 4090": 600,
+    "RTX 4070": 500,
+    "GeForce RTX 4060": 400,
+    "GeForce RTX 4080": 550,
+    "RTX 4060 Ti": 450,
+    "Radeon RX 7900 XTX": 580,
+    "Radeon RX 7600": 480,
+    "Radeon RX 7800 XT": 530,
+    "Radeon RX 7900 XT": 620,
+    "Radeon RX 6700 XT": 550,
+    "Arc A750": 550,
+    "Arc A380": 450,
+  };
+  
+  const cpuPrice = {
+    "Ryzen 5 7600": 250,
+    "Ryzen 7 7800X3D": 320,
+    "Ryzen 7 5800X3D": 300,
+    "Ryzen 9 7950X3D": 400,
+    "Ryzen 5 7600X": 260,
+    "Ryzen 5 5600X": 280,
+    "Ryzen 5 5600G": 270,
+    "Core i3-13100F": 230,
+    "Core i5-13600K": 300,
+    "Core i9-13900K": 400,
+    "Core i7-13700K": 350,
+    "Core i5-13400": 320,
+  };
+  let price;
+  document.getElementById("addToCart").addEventListener("click", function () {
+    const memory_ = document.getElementById("memory").value;
+    const gpu_ = document.getElementById("gpu").value;
+    const cpu_ = document.getElementById("cpu").value;
+  
+    price = memoryPrice[memory_] + gpuPrice[gpu_] + cpuPrice[cpu_];
+  
+    price = (price + parseFloat(popUpPrice.textContent)).toFixed(2);
+  
+    popUpPrice.textContent = price;
+
+    currentGpu = gpu_;
+  });
+  
+  // Set up the event listener for the customize buttons
+  let dataTable = [];
+  let counter = 0;
+  
+  //  pour souris
+  
+  const dpiValues = [800, 1000, 1200, 1600, 2000];
+  const dpiPrices = { 800: 30, 1000: 40, 1200: 50, 1600: 60, 2000: 70 };
+  const selectElement = document.getElementById("dpiSelect");
+  dpiValues.forEach(function (value) {
+    const optionElement = document.createElement("option");
+    optionElement.value = value;
+    optionElement.text = `${value} DPI`;
+    selectElement.appendChild(optionElement);
+  });
+  // pour moniteurs
+  const refreshRates = [60, 75, 120, 144, 165, 240];
+  
+  
+  const refreshRateSelect = document.getElementById("refreshRateSelect");
+  
+  
+  refreshRates.forEach(function (value) {
+    const optionElement = document.createElement("option");
+    optionElement.value = value;
+    optionElement.text = `${value} Hz`;
+    refreshRateSelect.appendChild(optionElement);
+    console.log("bkjhgkj");
+  });
+  // pour casques:
+   const frequencyOptions = [
+        { option: "20 Hz - 200 Hz", price: 50 },
+        { option: "30 Hz - 250 Hz", price: 60 },
+        { option: "40 Hz - 300 Hz", price: 70 }
+      ];
+  
+      const sizeOptions = [
+        { option: "Supra-auriculaires légers", price: 80 },
+        { option: "Circum-auriculaires fermés", price: 100 },
+        { option: "Intra-auriculaires avec embouts en mousse", price: 120 }
+      ];
+  
+      function addOptionsToDropdownWithOptionsAndPrices(options, dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+  
+        options.forEach(optionData => {
+          const optionElement = document.createElement("option");
+          optionElement.value = optionData.option.toLowerCase().replace(/\s+/g, '-');
+          optionElement.text = `${optionData.option} `;
+          dropdown.add(optionElement);
+          
+        });
+      }
+  
+      addOptionsToDropdownWithOptionsAndPrices(frequencyOptions, "frequencySelect");
+      addOptionsToDropdownWithOptionsAndPrices(sizeOptions, "sizeSelect");  
