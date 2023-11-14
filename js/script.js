@@ -714,93 +714,6 @@ const cpuPrice = {
   "Core i5-13400": 320,
 };
 
-// document.getElementById("addToCart").addEventListener("click", function () {
-//   const memory_ = document.getElementById("memory").value;
-//   const gpu_ = document.getElementById("gpu").value;
-//   const cpu_ = document.getElementById("cpu").value;
-
-//   price = memoryPrice[memory_] + gpuPrice[gpu_] + cpuPrice[cpu_];
-
-//   price = (price + parseFloat(popUpPrice.textContent)).toFixed(2);
-
-//   popUpPrice.textContent = price;
-
-//     currentGpu = gpu_;
-
-// });
-function calculate_price(element) {
-  //   if (element.category === "PC") {
-  //     const memory_ = document.getElementById("memory").value;
-  //     const gpu_ = document.getElementById("gpu").value;
-  //     const cpu_ = document.getElementById("cpu").value;
-  //     price = memoryPrice[memory_] + gpuPrice[gpu_] + cpuPrice[cpu_];
-
-  //     price = (price + parseFloat(popUpPrice.textContent)).toFixed(2);
-
-  //     popUpPrice.textContent = price;
-
-  //     currentGpu = gpu_;
-  //     element.price = price;
-  //   } else if (element.category === "Souris") {
-  //     price =
-  //       element.price + dpiPrices[document.getElementById("dpiSelect").value];
-
-  //     element.price = price;
-  //     popUpPrice.textContent = price;
-  //   } else if (element.category === "Moniteurs") {
-  //     price =
-  //       element.price +
-  //       refreshRatesPrice[document.getElementById("refreshRateSelect").value];
-  //     element.price = price;
-  //     popUpPrice.textContent = price;
-  //   } else if (element.category === "Casques") {
-  //       price = element.price + frequencyOptions[document.getElementById("frequencySelect").value];
-  //       element.price = price;
-  //       popUpPrice.textContent = price;
-
-  //   }
-  switch (element.category) {
-    case "PC":
-      const memory_ = document.getElementById("memory").value;
-      const gpu_ = document.getElementById("gpu").value;
-      const cpu_ = document.getElementById("cpu").value;
-      price = memoryPrice[memory_] + gpuPrice[gpu_] + cpuPrice[cpu_];
-
-      price = (price + parseFloat(popUpPrice.textContent)).toFixed(2);
-
-      popUpPrice.textContent = price;
-
-      currentGpu = gpu_;
-      element.price = price;
-      break;
-    case "Souris":
-      price =
-        element.price + dpiPrices[document.getElementById("dpiSelect").value];
-
-      element.price = price;
-      popUpPrice.textContent = price;
-      break;
-    case "Moniteurs":
-      price =
-        element.price +
-        refreshRatesPrice[document.getElementById("refreshRateSelect").value];
-      element.price = price;
-      popUpPrice.textContent = price;
-      break;
-    case "Casques":
-      price =
-        element.price +
-        frequencyOptions[document.getElementById("frequencySelect").value];
-      element.price = price;
-      popUpPrice.textContent = price;
-      break;
-
-    default:
-      break;
-  }
-
-  console.log(element);
-}
 
 // Set up the event listener for the customize buttons
 let dataTable = [];
@@ -835,7 +748,8 @@ refreshRates.forEach(function (value) {
   console.log("bkjhgkj");
 });
 // pour casques:
-
+const frequencySelect = document.getElementById("frequencySelect");
+const sizeSelect = document.getElementById("sizeSelect");
 const frequencyOptions = [
   { option: "20 Hz - 200 Hz", price: 50 },
   { option: "30 Hz - 250 Hz", price: 60 },
@@ -848,7 +762,7 @@ const sizeOptions = [
   { option: "Intra-auriculaires avec embouts en mousse", price: 120 },
 ];
 
-function addOptionsToDropdownWithOptionsAndPrices(options, dropdownId) {
+function addOptions(options, dropdownId) {
   const dropdown = document.getElementById(dropdownId);
 
   options.forEach((optionData) => {
@@ -859,5 +773,64 @@ function addOptionsToDropdownWithOptionsAndPrices(options, dropdownId) {
   });
 }
 
-addOptionsToDropdownWithOptionsAndPrices(frequencyOptions, "frequencySelect");
-addOptionsToDropdownWithOptionsAndPrices(sizeOptions, "sizeSelect");
+addOptions(frequencyOptions, "frequencySelect");
+addOptions(sizeOptions, "sizeSelect");
+
+// calculer le prix de produit avec faire un teste de categories:
+
+function calculate_price(element) {
+  switch (element.category) {
+    case "PC":
+      const memory_ = document.getElementById("memory").value;
+      const gpu_ = document.getElementById("gpu").value;
+      const cpu_ = document.getElementById("cpu").value;
+      price = memoryPrice[memory_] + gpuPrice[gpu_] + cpuPrice[cpu_];
+
+      price = (price + parseFloat(popUpPrice.textContent)).toFixed(2);
+
+      popUpPrice.textContent = price;
+
+      currentGpu = gpu_;
+      element.price = price;
+      break;
+    case "Souris":
+      price =
+        element.price + dpiPrices[document.getElementById("dpiSelect").value];
+
+      element.price = price;
+      popUpPrice.textContent = price;
+      break;
+    case "Moniteurs":
+      price =
+        element.price +
+        refreshRatesPrice[document.getElementById("refreshRateSelect").value];
+      element.price = price;
+      popUpPrice.textContent = price;
+      break;
+    case "Casques":
+      // pour trouver l'option selectionner:
+    const selectedFrequency = frequencyOptions.find(
+      (option) =>
+        option.option.toLowerCase().replace(/\s+/g, "-") ===
+        frequencySelect.value
+    );
+    console.log(selectedFrequency);
+
+    const selectedSize = sizeOptions.find(
+      (option) =>
+        option.option.toLowerCase().replace(/\s+/g, "-") === sizeSelect.value
+    );
+    console.log(selectedSize);
+
+      price = element.price + selectedFrequency.price + selectedSize.price;
+       
+      element.price = price;
+      popUpPrice.textContent = price;
+      break;
+
+    default:
+      break;
+  }
+
+  console.log(element);
+}
