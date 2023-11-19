@@ -567,7 +567,7 @@ const addCartToHTML = () => {
   listCartHTML.innerHTML += `
     <div class = "flex">
     <button class="close w-full bg-secondary text-white">Close</button>
-    <button class="checkOut w-full bg-primary text-white">Check out</button>
+    <button class="checkOut w-full bg-primary text-white" onclick="window.location.href='./devis.html'">Check out</button>
     </div>
 
     <div class = "totalPrice text-center text-primary font-semibold">${finalPrice}</div>
