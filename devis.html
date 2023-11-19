@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -12,81 +11,85 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-
+      href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
     
+    <script src="./print.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 fontFamily: {
-                    'Saira': ['Saira Condensed', 'sans-serif']
+                'Saira': ['Saira Condensed', 'sans-serif']
                 },
                 extend: {
-                    colors: {
-                        'background': '#000614',
-                        'secondary': '#030029',
-                        'blueText': '#0036AC',
-                        'primary': '#2E4BFF',
-                        'dark': '#080E1B',
-                        'blueText2': '#0E41F3',
-                        'customize': '#17284C',
-                        'checkout': '#1E3B79',
+                colors: {
+                    'background': '#000614',
+                    'secondary': '#030029',
+                    'blueText': '#0036AC',
+                    'primary': '#2E4BFF',
+                    'dark': '#080E1B',
+                    'blueText2': '#0E41F3',
+                    'customize': '#17284C',
+                    'checkout': '#1E3B79',
+                },
+
+                animation: {
+                    "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+                    "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
+                },
+
+                keyframes: {
+                    "scaleup": {
+                    from: {
+                        transform: "scale(1)"
                     },
-
-                    animation: {
-                        "scaleup": "scaleup 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
-                        "scaleup-mini": "scaleup-mini 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both"
-                    },
-
-                    keyframes: {
-                        "scaleup": {
-                            from: {
-                                transform: "scale(1)"
-                            },
-                            to: {
-                                transform: "scale(1.1)"
-                            }
-                        },
-
-                        "scaleup-mini": {
-                            from: {
-                                transform: "scale(1)"
-                            },
-                            to: {
-                                transform: "scale(1.03)"
-                            }
-                        }
+                    to: {
+                        transform: "scale(1.1)"
                     }
+                    },
+
+                    "scaleup-mini": {
+                    from: {
+                        transform: "scale(1)"
+                    },
+                    to: {
+                        transform: "scale(1.03)"
+                    }
+                    }
+                }
                 },
             },
         }
     </script>
 
 
-</head>
+  </head>
 
-<body>
-    <div class="grid ">
-
-        <div class="page flex items-center justify-center min-h-screen bg-gray-100">
+    <body>
+        <div class="grid ">
+           
+        <div  class="page flex items-center justify-center min-h-screen bg-gray-100">
             <div class="w-3/5 bg-white shadow-lg">
                 <div class="flex justify-between p-4">
                     <div>
                         <img src="./img/logoinblack.png" alt="" class="w-48 p-2 md:w-6/12" />
-
+                       
                     </div>
                     <div class="p-2">
                         <ul class="flex">
-
+                            
                             <li class="flex flex-col p-2 border-l-2 border-indigo-200">
-
+                                
                                 <span class="text-black text-4xl">Devis</span>
                                 <span class="text-sm">
-                                    Date:<br>lieu:SAFI
-
+                                   Date:<br>lieu:SAFI
+            
                                 </span>
                             </li>
                         </ul>
@@ -97,111 +100,179 @@
                     <div class="w-40">
                         <address class="text-sm">
                             <span class="font-bold">GAMEBIT </span>
-                            <br> Adresse<br>Numero de telephone<br>Email
+                        <br> Adresse<br>Numero de telephone<br>Email
                         </address>
                     </div>
-
-
+                 
+                    <!-- <div class="w-40">
+                       
+                            <br>
+                            <span class="font-bold text-sm pl-10">Nom du client :</span>
+                          
+                             <span class="text-sm "><ul class="pl-10">
+                                <il>adress</il><br>
+                                <il>Numéro </il><br>
+                                <il></il>
+                             </ul></span>
+                        
+                    </div> --> 
+                  
                 </div>
                 <div>
                     <div class="flex items-center justify-center">
-                        <div class="p-4 max-[768px]:p-10">
-                            <div class="border-b border-gray-200 shadow ">
-                                <table id="panierTable" class="md:text-xs  md:p-2 ">
-                                    <thead class="bg-gray-50 md:text-xs">
-                                        <tr id="tr" class="bg-slate-500 w-full">
-                                            <!-- <th id="num" class="px-4  py-2 text-xs text-white ">
+                <div class="p-4 max-[768px]:p-10">
+                    <div class="border-b border-gray-200 shadow ">
+                        <table id="panierTable" class="md:text-xs  md:p-2 ">
+                            <thead class="bg-gray-50 md:text-xs">
+                                <tr id="tr" class="bg-slate-500 w-full">
+                                    <!-- <th id="num" class="px-4  py-2 text-xs text-white ">
                                         #
                                     </th> -->
-                                            <th id=" produit" class="px-4  py-2 text-xs text-white ">
-                                                Produit
-                                            </th>
-                                            <th id=" quantite" class="px-4 py-2 text-xs text-white ">
-                                                Quantité
-                                            </th>
-                                            <th id="Prixunitaireht" class="px-4 py-2 text-xs text-white ">
-                                                Prix Unitaire HT
-                                            </th>
-                                            <th id="TVA" class="px-4 py-2 text-xs text-white">
-                                                Prix total
-                                            </th>
+                                    <th id=" produit" class="px-4  py-2 text-xs text-white ">
+                                       Produit
+                                    </th>
+                                    <th id=" quantite" class="px-4 py-2 text-xs text-white ">
+                                        Quantité
+                                    </th>
+                                    <th id="Prixunitaireht" class="px-4 py-2 text-xs text-white ">
+                                        Prix Unitaire HT
+                                    </th>
+                                    <th id="TVA" class="px-4 py-2 text-xs text-white">
+                                        Prix total
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="panierTableBody" class="bg-white">
+                                 <!-- <tr class="whitespace-nowrap"> 
+                                     <td class="px-6 py-4 text-sm text-gray-500 md:text-xs">
+                                        1
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-900">
+                                            PRODUCT X
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-500">4</div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        $20
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $30
+                                    </td>
+                                </tr>
+                                <tr class="whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        2
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-900">
+                                          PRODUCT X
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-500">2</div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        $60
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $12
+                                    </td>
+                                </tr>
+                                <tr class="border-b-2 whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        3
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-900">
+                                            PRODUCT X
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-500">1</div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        $10
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $13
+                                    </td>
+                                </tr > 
+                                <tr id="total-ht" class="bg-slate-300">
+                                    <td colspan="3"></td>
+                                    <td class="text-sm font-bold md:text-xs">Montant total HT</td>
+                                    <td class="text-sm font-bold tracking-wider md:text-xs"><b>$0.00</b></td>
+                                </tr>
+                              
+                                <tr id="tva" class="bg-slate-400">
+                                    <th colspan="3"></th>
+                                    <td class="text-sm font-bold md:text-xs"><b>Total TVA</b></td>
+                                    <td class="text-sm font-bold md:text-xs"><b>$0.00</b></td>
+                                </tr>
+                               
+                                <tr id="total-ttc" class="text-black bg-slate-300">
+                                    <th colspan="3"></th>
+                                    <td class="text-sm font-bold md:text-xs"><b>Montan total TTC</b></td>
+                                    <td class="text-sm font-bold md:text-xs"><b>$0.00</b></td>
+                                </tr> -->
+                               
 
-                                        </tr>
-                                    </thead>
-                                    <tbody id="panierTableBody" class="bg-white">
-
-                                        <tr id="total-ht">
-                                            <td colspan="3"></td>
-                                            <td>Montant total HT</td>
-                                            <td id="total-ht">$0.00</td>
-                                        </tr>
-                                        <tr id="tva">
-                                            <td colspan="3"></td>
-                                            <td>Total TVA</td>
-                                            <td id="tva">$0.00</td>
-                                        </tr>
-                                        <tr id="total-ttc">
-                                            <td colspan="3"></td>
-                                            <td>Montant total TTC</td>
-                                            <td id="total-ttc">$0.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="flex flex-col mx-5">
-
-                        <span class="text-xs p-8">Moyens de paiement : Espèces-Virement BANCAIRE sur le compte:
-                            XXXX</span>
-
-                    </div>
-
-                    <!-- <div class="w-full h-0.5 bg-indigo-500"></div> -->
-                    <div class="p-4 ">
-
-                        <div class="flex items-end space-x-3 justify-center ">
-                            <!-- <button onclick="myfun()" class="px-4 py-2 text-sm text-blue-600 bg-blue-100 ">Print</button> -->
-                            <button id="btn1" class="px-4 py-2 text-sm text-blue-600 bg-blue-100">Print</button>
-                            <button id="btn2" class="px-4 py-2 text-sm text-blue-600 bg-blue-100 "
-                                onclick="openPopup()">Save</button>
-                            <button id="btn3" class="px-4 py-2 text-sm text-blue-600 bg-blue-100">Cancel</button>
-                            <div class="popup" id="popup">
-                                <h2 class="text-lg ">le récapitulatif de la commande</h2>
-
-                                <table id="panierTableBody" class="text-center justify-center text-white">
-                                    <tr id="total-ht">
-                                        <td colspan="3"></td>
-                                        <td>Montant total HT</td>
-                                        <td id="total-ht">$0.00</td>
-                                    </tr>
-                                    <tr id="tva">
-                                        <td colspan="3"></td>
-                                        <td>Total TVA</td>
-                                        <td id="tva">$0.00</td>
-                                    </tr>
-                                    <tr id="total-ttc">
-                                        <td colspan="3"></td>
-                                        <td>Montant total TTC</td>
-                                        <td id="total-ttc">$0.00</td>
-                                    </tr>
-                                </table>
-                                <button id="confirm">confirm</button>
-                                <button onclick="closePopup()">cancel</button>
-                            </div>
-                        </div>
-
-                    </div>
-
+                </div>
+                </div>
+                <div class="flex flex-col mx-5">
+                   
+                    <span class="text-xs p-8">Moyens de paiement : Espèces-Virement BANCAIRE sur le compte: XXXX</span>
 
                 </div>
+              
+                <!-- <div class="w-full h-0.5 bg-indigo-500"></div> -->
+ <div class="p-4 ">
+                  
+                    <div class="flex items-end space-x-3 justify-center ">
+                        <!-- <button onclick="myfun()" class="px-4 py-2 text-sm text-blue-600 bg-blue-100 ">Print</button> -->
+                        <button id="btn1"  class="px-4 py-2 text-sm text-blue-600 bg-blue-100">Print</button>
+                        <button id="btn2"  class="px-4 py-2 text-sm text-blue-600 bg-blue-100 " onclick="openPopup()">Save</button>
+                        <button id="btn3" class="px-4 py-2 text-sm text-blue-600 bg-blue-100">Cancel</button>
+                        <div class="popup" id="popup" >
+                            <h2 class="text-lg ">le récapitulatif de la commande</h2>
+                           
+                             <table id="panierTableBody" class="text-center justify-center text-white">   
+                                <tr id="total-ht">
+                                    <td colspan="3"></td>
+                                    <td>Montant total HT</td>
+                                    <td id="total-ht2">$0.00</td>
+                                </tr>
+                                <tr id="tva">
+                                    <td colspan="3"></td>
+                                    <td>Total TVA</td>
+                                    <td id="tva2">$0.00</td>
+                                </tr>
+                                <tr id="total-ttc">
+                                    <td colspan="3"></td>
+                                    <td>Montant total TTC</td>
+                                    <td id="total-ttc2">$0.00</td>
+                                </tr>
+                           </table> 
+                            <button id="confirm">confirm</button>
+                            <button onclick="closePopup()" >cancel</button>
+                        </div>
+                    </div>
+                    
+                </div>
+              
+
             </div>
-
         </div>
-
-
-<script src="./js/print.js"></script>
-<script src="./js/script.js"></script>
+       
+       </div>
+      
+    </body>
+    
 </body>
-
 </html>
