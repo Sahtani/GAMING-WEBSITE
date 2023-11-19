@@ -39,12 +39,6 @@ const products = [
     category: "Moniteurs",
   },
   {
-    name: "Razer Kraken V3 X Wired",
-    price: 699.99,
-    image: "./img/pro.png",
-    category: "Casques",
-  },
-  {
     name: "ASUS VP249QGR",
     price: 2399.99,
     image: "./img/asus.png",
@@ -211,6 +205,12 @@ const products = [
     price: 2999.99,
     image: "./img/ps4.png",
     category: "Consoles",
+  },
+  {
+    name: "Razer Kraken V3 X Wired",
+    price: 699.99,
+    image: "./img/pro.png",
+    category: "Casques",
   },
   {
     name: "PlayStation 4 Pro",
